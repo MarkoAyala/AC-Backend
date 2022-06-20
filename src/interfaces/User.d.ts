@@ -5,6 +5,7 @@ export interface UserWithId extends User {
 }
 
 export interface UserMapped {
+    _id:string
     firstName:string
     lastName:string
     userName:string

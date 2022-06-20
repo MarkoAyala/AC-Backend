@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import UserModel from "../../models/User";
+import {UserModel} from "../../models/User";
 import { UserMapped } from "../../interfaces/User";
 
 export const CREATE_USER = async (
@@ -28,6 +28,7 @@ export const CREATE_USER = async (
         const createUser = {
           firstName: firstName,
           lastName: lastName,
+          userName:userName,
           email: email,
           password: password,
           role: role,
