@@ -7,6 +7,9 @@ class User{
     @prop({required:true})
     lastName:string
 
+    @prop({required:true})
+    userName:string
+
     @prop({required:true, trim:true})
     email:string
 

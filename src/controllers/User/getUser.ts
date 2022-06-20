@@ -7,16 +7,5 @@ export const GET_USER = async (
     res: Response,
     _next: NextFunction
     ) => {
-      const {firstName , lastName , email , password , role , country}:UserMapped = req.body
-    try{
-        const createUser = {firstName:firstName , lastName:lastName, email:email , password:password , role:role, country:country}
-        const created = await UserModel.create(createUser)
-        if(created){
-            res.status(200).json(created);
-        }else {
-            throw new Error("No se pudo crear el usuario")
-          }
-    }catch(error){
-        console.log("errorsaki", error)
+        //if (req.query.email || req.query.user_name || req.params.id) next();
     }
-  }
