@@ -33,6 +33,7 @@ export const CREATE_USER = async (
           password: password,
           role: role,
           country: country,
+          shoppingCart:[],
         };
         const created = await UserModel.create(createUser);
         if (created) {

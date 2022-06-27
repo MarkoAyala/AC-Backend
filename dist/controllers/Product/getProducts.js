@@ -9,28 +9,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GET_USER = void 0;
-const User_1 = require("../../models/User");
-const GET_USER = (_req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
+exports.GET_PRODUCT = void 0;
+const Product_1 = require("../../models/Product");
+const GET_PRODUCT = (_req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
     //if (req.query.email || req.query.user_name || req.params.id) next();
     // else{
     try {
-        const allUsers = yield User_1.UserModel.find({});
-        if (allUsers) {
-            const allUsersMapped = allUsers.map((el) => {
+        const allProducts = yield Product_1.ProductModel.find({});
+        if (allProducts) {
+            const allProductsMapped = allProducts.map((el) => {
                 return ({
                     _id: el._id,
-                    firstName: el.firstName,
-                    lastName: el.lastName,
-                    userName: el.userName,
-                    email: el.email,
-                    password: el.password,
-                    role: el.role,
-                    country: el.country,
-                    shoppingCart: el.shoppingCart
+                    name: el.name,
+                    price: el.price,
+                    stock: el.stock,
+                    color: el.color.map((e) => { return e; }),
+                    url: el.url.map((e) => { return e; }),
+                    tags: el.tags.map((e) => { return e; }),
                 });
             });
-            res.status(200).json(allUsersMapped);
+            res.status(200).json(allProductsMapped);
         }
     }
     catch (err) {
@@ -38,4 +36,4 @@ const GET_USER = (_req, res, _next) => __awaiter(void 0, void 0, void 0, functio
     }
     //   }
 });
-exports.GET_USER = GET_USER;
+exports.GET_PRODUCT = GET_PRODUCT;

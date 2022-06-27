@@ -9,9 +9,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserModel = exports.User = void 0;
 const typegoose_1 = require("@typegoose/typegoose");
-class User {
-}
+const Product_1 = require("./Product");
+let User = class User {
+};
 __decorate([
     (0, typegoose_1.prop)({ required: true }),
     __metadata("design:type", String)
@@ -20,6 +22,10 @@ __decorate([
     (0, typegoose_1.prop)({ required: true }),
     __metadata("design:type", String)
 ], User.prototype, "lastName", void 0);
+__decorate([
+    (0, typegoose_1.prop)({ required: true }),
+    __metadata("design:type", String)
+], User.prototype, "userName", void 0);
 __decorate([
     (0, typegoose_1.prop)({ required: true, trim: true }),
     __metadata("design:type", String)
@@ -36,5 +42,16 @@ __decorate([
     (0, typegoose_1.prop)({ required: true }),
     __metadata("design:type", String)
 ], User.prototype, "country", void 0);
-const UserModel = (0, typegoose_1.getModelForClass)(User);
-exports.default = UserModel;
+__decorate([
+    (0, typegoose_1.prop)({ type: () => [Product_1.Product], ref: () => Product_1.Product, required: true, default: [] }),
+    __metadata("design:type", Array)
+], User.prototype, "shoppingCart", void 0);
+User = __decorate([
+    (0, typegoose_1.modelOptions)({
+        schemaOptions: {
+            timestamps: true,
+        }
+    })
+], User);
+exports.User = User;
+exports.UserModel = (0, typegoose_1.getModelForClass)(User);

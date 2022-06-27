@@ -10,7 +10,7 @@ export const GET_USER = async (
         //if (req.query.email || req.query.user_name || req.params.id) next();
        // else{
             try{
-                const allUsers: Array<User> = await UserModel.find({});
+                const allUsers: Array<User> = await UserModel.find({}).populate("shoppingCart")
 
                 if(allUsers){
                     const allUsersMapped: Array<UserMapped> = allUsers.map((el:any)=>{
@@ -22,7 +22,8 @@ export const GET_USER = async (
                             email:el.email,
                             password:el.password,
                             role:el.role,
-                            country:el.country
+                            country:el.country,
+                            shoppingCart:el.shoppingCart
 
                         });
                     });

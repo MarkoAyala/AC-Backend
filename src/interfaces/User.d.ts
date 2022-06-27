@@ -1,3 +1,4 @@
+import { Product } from "../models/Product"
 import { User } from "../models/User"
 
 export interface UserWithId extends User {
@@ -13,4 +14,5 @@ export interface UserMapped {
     password:string
     role:number
     country:string
+    shoppingCart:Array<Product>
 }

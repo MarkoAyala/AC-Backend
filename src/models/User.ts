@@ -1,26 +1,35 @@
-import {prop , getModelForClass} from '@typegoose/typegoose';
+import {prop , getModelForClass, modelOptions, Ref} from '@typegoose/typegoose';
+import {Product} from './Product';
 
+@modelOptions({
+    schemaOptions:{
+        timestamps:true,
+    }
+})
 export class User{
     @prop({required:true})
-    firstName:string
+    firstName:string;
 
     @prop({required:true})
-    lastName:string
+    lastName:string;
 
     @prop({required:true})
-    userName:string
+    userName:string;
 
     @prop({required:true, trim:true})
-    email:string
+    email:string;
 
     @prop({required:true})
-    password:string
+    password:string;
 
     @prop({required:true})
-    role:number
+    role:number;
 
     @prop({required:true})
-    country:string
+    country:string;
+
+    @prop({ type: ()=> [Product], ref:()=> Product, required:true , default:[]})
+    shoppingCart?:Array<Ref<Product>>;
 }
 
 export const UserModel = getModelForClass(User);
