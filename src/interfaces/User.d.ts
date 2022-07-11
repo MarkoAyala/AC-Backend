@@ -9,10 +9,10 @@ export interface UserMapped {
     _id:string
     firstName:string
     lastName:string
-    userName:string
+    nickname:string
+    picture:string
     email:string
-    password:string
     role:number
     country:string
-    shoppingCart:Array<Product>
+    shoppingCart?:Array<Product> | []
 }

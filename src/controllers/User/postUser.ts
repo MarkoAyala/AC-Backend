@@ -11,26 +11,24 @@ export const CREATE_USER = async (
     const {
       firstName,
       lastName,
-      userName,
+      nickname,
       email,
-      password,
       role,
       country,
     }: UserMapped = req.body;
 
-    if (!firstName || !lastName || !email || !password || !role || !country || !userName) {
+    if (!firstName || !lastName || !email || !role || !country || !nickname) {
       throw new Error("Debe completar todos los campos.");
     } else {
-      const existUserName = await UserModel.findOne({ userName: userName });
+      const existUserName = await UserModel.findOne({ email: email });
       if (existUserName) {
         throw new Error(`Ya existe este nombre de usuario: ${existUserName}`);
       } else {
         const createUser = {
           firstName: firstName,
           lastName: lastName,
-          userName:userName,
+          nickname:nickname,
           email: email,
-          password: password,
           role: role,
           country: country,
           shoppingCart:[],

@@ -3,24 +3,25 @@ import {UserModel , User} from "../../models/User";
 import { UserMapped } from "../../interfaces/User";
 
 export const GET_USER = async (
-    _req: Request,
+    req: Request,
     res: Response,
-    _next: NextFunction
+    next: NextFunction
     ) => {
-        //if (req.query.email || req.query.user_name || req.params.id) next();
-       // else{
+        const { firstName , nickname} = req.body;
+        if (!firstName || !nickname) next();
+        else{
             try{
                 const allUsers: Array<User> = await UserModel.find({}).populate("shoppingCart")
-
+                console.log("ENTRE ACA Y NO DEBIA LOCO")
                 if(allUsers){
                     const allUsersMapped: Array<UserMapped> = allUsers.map((el:any)=>{
                         return ({
                             _id: el._id,
                             firstName:el.firstName,
                             lastName:el.lastName,
-                            userName: el.userName,
+                            nickname: el.nickname,
                             email:el.email,
-                            password:el.password,
+                            picture:el.picture,
                             role:el.role,
                             country:el.country,
                             shoppingCart:el.shoppingCart
@@ -32,5 +33,5 @@ export const GET_USER = async (
             }catch(err:any | unknown){
                 res.status(400).send(`Error en controller GET_USER: ${err.message}`);
             }
-     //   }
+       }
     }

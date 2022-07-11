@@ -13,12 +13,12 @@ exports.CREATE_USER = void 0;
 const User_1 = require("../../models/User");
 const CREATE_USER = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { firstName, lastName, userName, email, password, role, country, } = req.body;
-        if (!firstName || !lastName || !email || !password || !role || !country || !userName) {
+        const { firstName, lastName, nickname, email, role, country, } = req.body;
+        if (!firstName || !lastName || !email || !role || !country || !nickname) {
             throw new Error("Debe completar todos los campos.");
         }
         else {
-            const existUserName = yield User_1.UserModel.findOne({ userName: userName });
+            const existUserName = yield User_1.UserModel.findOne({ email: email });
             if (existUserName) {
                 throw new Error(`Ya existe este nombre de usuario: ${existUserName}`);
             }
@@ -26,9 +26,8 @@ const CREATE_USER = (req, res, _next) => __awaiter(void 0, void 0, void 0, funct
                 const createUser = {
                     firstName: firstName,
                     lastName: lastName,
-                    userName: userName,
+                    nickname: nickname,
                     email: email,
-                    password: password,
                     role: role,
                     country: country,
                     shoppingCart: [],

@@ -8,9 +8,9 @@ export const EDIT_USER = async (req: Request , res:Response , _next:NextFunction
             id,
             firstName,
             lastName,
-            userName,
+            nickname,
             email,
-            password,
+            picture,
             role,
             country,
             shoppingCart
@@ -21,9 +21,9 @@ export const EDIT_USER = async (req: Request , res:Response , _next:NextFunction
             const userEdited = await UserModel.updateOne({_id:id},{
                 firstName: firstName && firstName,
                 lastName: lastName && lastName,
-                userName: userName && userName,
+                nickname: nickname && nickname,
+                picture:picture && picture,
                 email: email && email,
-                password: password && password,
                 role: role && role,
                 country: country && country,
                 shoppingCart:shoppingCart && shoppingCart

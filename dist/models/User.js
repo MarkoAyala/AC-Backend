@@ -15,31 +15,27 @@ const Product_1 = require("./Product");
 let User = class User {
 };
 __decorate([
-    (0, typegoose_1.prop)({ required: true }),
+    (0, typegoose_1.prop)({ required: true, default: "Incomplete" }),
     __metadata("design:type", String)
 ], User.prototype, "firstName", void 0);
 __decorate([
-    (0, typegoose_1.prop)({ required: true }),
+    (0, typegoose_1.prop)({ required: true, default: "Incomplete" }),
     __metadata("design:type", String)
 ], User.prototype, "lastName", void 0);
 __decorate([
     (0, typegoose_1.prop)({ required: true }),
     __metadata("design:type", String)
-], User.prototype, "userName", void 0);
+], User.prototype, "nickname", void 0);
 __decorate([
     (0, typegoose_1.prop)({ required: true, trim: true }),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
-    (0, typegoose_1.prop)({ required: true }),
-    __metadata("design:type", String)
-], User.prototype, "password", void 0);
-__decorate([
-    (0, typegoose_1.prop)({ required: true }),
+    (0, typegoose_1.prop)({ required: true, default: 0 }),
     __metadata("design:type", Number)
 ], User.prototype, "role", void 0);
 __decorate([
-    (0, typegoose_1.prop)({ required: true }),
+    (0, typegoose_1.prop)({ required: true, default: 'Incomplete' }),
     __metadata("design:type", String)
 ], User.prototype, "country", void 0);
 __decorate([

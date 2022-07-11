@@ -11,31 +11,32 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GET_USER = void 0;
 const User_1 = require("../../models/User");
-const GET_USER = (_req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
-    //if (req.query.email || req.query.user_name || req.params.id) next();
-    // else{
-    try {
-        const allUsers = yield User_1.UserModel.find({});
-        if (allUsers) {
-            const allUsersMapped = allUsers.map((el) => {
-                return ({
-                    _id: el._id,
-                    firstName: el.firstName,
-                    lastName: el.lastName,
-                    userName: el.userName,
-                    email: el.email,
-                    password: el.password,
-                    role: el.role,
-                    country: el.country,
-                    shoppingCart: el.shoppingCart
+const GET_USER = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { firstName, nickname } = req.body;
+    if (!firstName || !nickname)
+        next();
+    else {
+        try {
+            const allUsers = yield User_1.UserModel.find({}).populate("shoppingCart");
+            if (allUsers) {
+                const allUsersMapped = allUsers.map((el) => {
+                    return ({
+                        _id: el._id,
+                        firstName: el.firstName,
+                        lastName: el.lastName,
+                        nickname: el.nickname,
+                        email: el.email,
+                        role: el.role,
+                        country: el.country,
+                        shoppingCart: el.shoppingCart
+                    });
                 });
-            });
-            res.status(200).json(allUsersMapped);
+                res.status(200).json(allUsersMapped);
+            }
+        }
+        catch (err) {
+            res.status(400).send(`Error en controller GET_USER: ${err.message}`);
         }
     }
-    catch (err) {
-        res.status(400).send(`Error en controller GET_USER: ${err.message}`);
-    }
-    //   }
 });
 exports.GET_USER = GET_USER;
