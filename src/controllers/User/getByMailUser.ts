@@ -3,9 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import { UserModel } from "../../models/User";
 
 export const GET_USER_BY_EMAIL = async (req: Request, res: Response, _next: NextFunction) => {
-    
-    const {email, nickname , picture} = req.body;
-
+    const {email, nickname , picture} = req.query;
         try{
             if(email){
                 const userByMail = await UserModel.findOneAndUpdate({
@@ -24,5 +22,4 @@ export const GET_USER_BY_EMAIL = async (req: Request, res: Response, _next: Next
             }catch(err: any | unknown){
                 res.status(400).send(`Error en el controller GET_USER_BY_MAIL: ${err.message}`);
             }
-    
     }
