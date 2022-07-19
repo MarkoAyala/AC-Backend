@@ -13,7 +13,8 @@ export const EDIT_USER = async (req: Request , res:Response , _next:NextFunction
             picture,
             role,
             country,
-            shoppingCart
+            shoppingCart,
+            favorites
           }= req.body;
           if(!id){
             throw new Error('Ha ocurrido un error al editar el usuario');
@@ -26,7 +27,8 @@ export const EDIT_USER = async (req: Request , res:Response , _next:NextFunction
                 email: email && email,
                 role: role && role,
                 country: country && country,
-                shoppingCart:shoppingCart && shoppingCart
+                shoppingCart:shoppingCart && shoppingCart,
+                favorites:favorites && favorites
             });
 
             res.status(200).json(userEdited)

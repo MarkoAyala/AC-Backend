@@ -24,7 +24,8 @@ export const GET_USER = async (
                             picture:el.picture,
                             role:el.role,
                             country:el.country,
-                            shoppingCart:el.shoppingCart
+                            shoppingCart:el.shoppingCart,
+                            favorites:el.favorites
 
                         });
                     });

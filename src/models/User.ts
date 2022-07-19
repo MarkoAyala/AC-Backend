@@ -33,6 +33,9 @@ export class User{
 
     @prop({ type: ()=> [Product], ref:()=> Product, required:true , default:[]})
     shoppingCart?:Product[];
+
+    @prop({ type: ()=> [Product], ref:()=> Product, required:true , default:[]})
+    favorites?:Product[];
 }
 
 export const UserModel = getModelForClass(User);
