@@ -12,11 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GET_USER_BY_EMAIL = void 0;
 /* import { UserMapped } from "../../interfaces/User"; */
 const User_1 = require("../../models/User");
-const GET_USER_BY_EMAIL = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const GET_USER_BY_EMAIL = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email, nickname } = req.query;
     try {
-        const { email, firstName, nickname } = req.body;
-        if (!firstName)
-            next();
         if (email) {
             const userByMail = yield User_1.UserModel.findOneAndUpdate({
                 email: email, nickname: nickname
@@ -26,7 +24,6 @@ const GET_USER_BY_EMAIL = (req, res, next) => __awaiter(void 0, void 0, void 0, 
                 returnOriginal: false,
                 upsert: true
             });
-            console.log("CONSOLE.LOGGGGGG", userByMail);
             res.status(200).json(userByMail);
         }
         else {

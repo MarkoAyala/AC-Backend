@@ -1,4 +1,5 @@
 import {prop , getModelForClass} from '@typegoose/typegoose';
+import { Url } from '../interfaces/Product';
 
 export class Product{
     @prop({required:true, trim:true})
@@ -14,7 +15,7 @@ export class Product{
     color:string[]
 
     @prop({required:true , type:()=> [String] ,  lowercase:true})
-    url:string[]
+    url:Url
 
     @prop({ type:()=> [String] ,required:true})
     tags:string[]

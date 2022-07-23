@@ -18,6 +18,7 @@ const GET_USER = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
     else {
         try {
             const allUsers = yield User_1.UserModel.find({}).populate("shoppingCart");
+            console.log("ENTRE ACA Y NO DEBIA LOCO");
             if (allUsers) {
                 const allUsersMapped = allUsers.map((el) => {
                     return ({
@@ -26,9 +27,11 @@ const GET_USER = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
                         lastName: el.lastName,
                         nickname: el.nickname,
                         email: el.email,
+                        picture: el.picture,
                         role: el.role,
                         country: el.country,
-                        shoppingCart: el.shoppingCart
+                        shoppingCart: el.shoppingCart,
+                        favorites: el.favorites
                     });
                 });
                 res.status(200).json(allUsersMapped);

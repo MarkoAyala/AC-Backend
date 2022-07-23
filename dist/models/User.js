@@ -31,6 +31,10 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
+    (0, typegoose_1.prop)({ required: true }),
+    __metadata("design:type", String)
+], User.prototype, "picture", void 0);
+__decorate([
     (0, typegoose_1.prop)({ required: true, default: 0 }),
     __metadata("design:type", Number)
 ], User.prototype, "role", void 0);
@@ -42,6 +46,10 @@ __decorate([
     (0, typegoose_1.prop)({ type: () => [Product_1.Product], ref: () => Product_1.Product, required: true, default: [] }),
     __metadata("design:type", Array)
 ], User.prototype, "shoppingCart", void 0);
+__decorate([
+    (0, typegoose_1.prop)({ type: () => [Product_1.Product], ref: () => Product_1.Product, required: true, default: [] }),
+    __metadata("design:type", Array)
+], User.prototype, "favorites", void 0);
 User = __decorate([
     (0, typegoose_1.modelOptions)({
         schemaOptions: {

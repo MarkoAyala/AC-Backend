@@ -31,7 +31,7 @@ __decorate([
 ], Product.prototype, "color", void 0);
 __decorate([
     (0, typegoose_1.prop)({ required: true, type: () => [String], lowercase: true }),
-    __metadata("design:type", Array)
+    __metadata("design:type", Object)
 ], Product.prototype, "url", void 0);
 __decorate([
     (0, typegoose_1.prop)({ type: () => [String], required: true }),
