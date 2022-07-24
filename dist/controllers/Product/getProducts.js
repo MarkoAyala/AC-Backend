@@ -15,7 +15,7 @@ const GET_PRODUCT = (_req, res, _next) => __awaiter(void 0, void 0, void 0, func
     //if (req.query.email || req.query.user_name || req.params.id) next();
     // else{
     try {
-        const allProducts = yield Product_1.ProductModel.find({});
+        const allProducts = yield Product_1.ProductModel.find({}).populate("stock");
         if (allProducts) {
             const allProductsMapped = allProducts.map((el) => {
                 return ({
@@ -23,7 +23,6 @@ const GET_PRODUCT = (_req, res, _next) => __awaiter(void 0, void 0, void 0, func
                     name: el.name,
                     price: el.price,
                     stock: el.stock,
-                    color: el.color.map((e) => { return e; }),
                     url: el.url,
                     tags: el.tags.map((e) => { return e; }),
                 });

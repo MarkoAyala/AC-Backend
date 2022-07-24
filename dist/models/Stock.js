@@ -9,30 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProductModel = exports.Product = void 0;
+exports.StockModel = exports.Stock = void 0;
 const typegoose_1 = require("@typegoose/typegoose");
-const Stock_1 = require("./Stock");
-class Product {
+class Stock {
 }
 __decorate([
     (0, typegoose_1.prop)({ required: true, trim: true }),
     __metadata("design:type", String)
-], Product.prototype, "name", void 0);
-__decorate([
-    (0, typegoose_1.prop)({ default: 0 }),
-    __metadata("design:type", Number)
-], Product.prototype, "price", void 0);
-__decorate([
-    (0, typegoose_1.prop)({ ref: () => Stock_1.Stock, required: true, trim: true }),
-    __metadata("design:type", Object)
-], Product.prototype, "stock", void 0);
+], Stock.prototype, "name", void 0);
 __decorate([
     (0, typegoose_1.prop)({ required: true, lowercase: true }),
     __metadata("design:type", Object)
-], Product.prototype, "url", void 0);
-__decorate([
-    (0, typegoose_1.prop)({ type: () => [String], required: true }),
-    __metadata("design:type", Array)
-], Product.prototype, "tags", void 0);
-exports.Product = Product;
-exports.ProductModel = (0, typegoose_1.getModelForClass)(Product);
+], Stock.prototype, "stock", void 0);
+exports.Stock = Stock;
+exports.StockModel = (0, typegoose_1.getModelForClass)(Stock);

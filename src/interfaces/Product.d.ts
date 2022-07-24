@@ -12,8 +12,12 @@ export interface ProductMapped {
     _id:string
     name:string
     price:number
-    stock:number
-    color:Array<String>
+    stock:{
+        _id:string
+        talle:string
+        color:string
+        increase:number
+    }
     url:Url
     tags:Array<String>
 }

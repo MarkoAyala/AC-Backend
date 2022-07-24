@@ -11,10 +11,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CREATE_PRODUCT = void 0;
 const Product_1 = require("../../models/Product");
+const Stock_1 = require("../../models/Stock");
 const CREATE_PRODUCT = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name, price, stock, color, url, tags, } = req.body;
-        if (!name || !price || !stock || !color || !url || !tags) {
+        const { name, price, stock, url, tags, } = req.body;
+        if (!name || !price || !stock || !url || !tags) {
             throw new Error("Debe completar todos los campos.");
         }
         else {
@@ -23,20 +24,27 @@ const CREATE_PRODUCT = (req, res, _next) => __awaiter(void 0, void 0, void 0, fu
                 throw new Error(`Ya existe este producto ${existProduct}`);
             }
             else {
-                const createProduct = {
-                    name: name,
-                    price: price,
-                    stock: stock,
-                    color: color,
-                    url: url,
-                    tags: tags,
-                };
-                const created = yield Product_1.ProductModel.create(createProduct);
-                if (created) {
-                    res.status(200).json(created);
+                let color = `stock.${stock.color}.${stock.talle}`;
+                const existStock = yield Stock_1.StockModel.findOneAndUpdate({ _id: stock._id }, { $inc: { [color]: `${stock.increase}` } }, { returnNewDocument: true });
+                if (!existStock) {
+                    throw new Error('No se encontro el stock solicitado');
                 }
                 else {
-                    throw new Error("No se pudo crear el producto");
+                    console.log("CAMBIADO", existStock);
+                    const createProduct = {
+                        name: name,
+                        price: price,
+                        stock: stock._id,
+                        url: url,
+                        tags: tags,
+                    };
+                    const created = yield Product_1.ProductModel.create(createProduct);
+                    if (created) {
+                        res.status(200).json(created);
+                    }
+                    else {
+                        throw new Error("No se pudo crear el producto");
+                    }
                 }
             }
         }

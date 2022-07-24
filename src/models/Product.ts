@@ -1,5 +1,6 @@
-import {prop , getModelForClass} from '@typegoose/typegoose';
+import {prop , getModelForClass , Ref} from '@typegoose/typegoose';
 import { Url } from '../interfaces/Product';
+import {Stock} from './Stock';
 
 export class Product{
     @prop({required:true, trim:true})
@@ -8,13 +9,10 @@ export class Product{
     @prop({default:0})
     price:number;
 
-    @prop({required:true, trim:true})
-    stock:number
+    @prop({ref:()=> Stock ,required:true, trim:true})
+    stock:Ref<Stock>
 
-    @prop({required:true , type:()=> [String]})
-    color:string[]
-
-    @prop({required:true , type:()=> [String] ,  lowercase:true})
+    @prop({required:true ,  lowercase:true})
     url:Url
 
     @prop({ type:()=> [String] ,required:true})

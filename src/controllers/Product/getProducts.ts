@@ -10,8 +10,7 @@ export const GET_PRODUCT = async (
         //if (req.query.email || req.query.user_name || req.params.id) next();
        // else{
             try{
-                const allProducts: Array<Product> = await ProductModel.find({});
-
+                const allProducts: Array<Product> = await ProductModel.find({}).populate("stock");
                 if(allProducts){
                     const allProductsMapped: Array<ProductMapped> = allProducts.map((el:any)=>{
                         return ({
@@ -19,7 +18,6 @@ export const GET_PRODUCT = async (
                             name:el.name,
                             price:el.price,
                             stock:el.stock,
-                            color:el.color.map((e:string)=>{return e}),
                             url:el.url,
                             tags:el.tags.map((e:string)=>{return e}),
                         });
