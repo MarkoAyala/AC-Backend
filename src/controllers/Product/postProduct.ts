@@ -1,7 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import {ProductModel} from "../../models/Product";
 import { ProductMapped } from "../../interfaces/Product";
-import { StockModel } from "../../models/Stock";
 
 export const CREATE_PRODUCT = async (
   req: Request,
@@ -14,26 +13,23 @@ export const CREATE_PRODUCT = async (
       price,
       stock,
       url,
+      description,
       tags,
     }: ProductMapped = req.body;
 
-    if (!name || !price || !stock || !url || !tags) {
+    if (!name || !price || !stock || !url || !tags || !description) {
       throw new Error("Debe completar todos los campos.");
     } else {
       const existProduct = await ProductModel.findOne({ name: name });
       if (existProduct) {
         throw new Error(`Ya existe este producto ${existProduct}`);
       } else {
-        let color = `stock.${stock.color}.${stock.talle}`;
-        const existStock = await StockModel.findOneAndUpdate({_id:stock._id},{$inc:{[color]:stock.increase}})
-        if(!existStock){
-          throw new Error('No se encontro el stock solicitado');
-        }else{
           const createProduct = {
             name:name,
             price:price,
-            stock:stock._id,
+            stock:stock,
             url:url,
+            description:description,
             tags:tags,
           };
           const created = await ProductModel.create(createProduct);
@@ -42,7 +38,6 @@ export const CREATE_PRODUCT = async (
           } else {
             throw new Error("No se pudo crear el producto");
           }
-        }
       }
     }
   } catch (error: string | any) {

@@ -15,6 +15,9 @@ export class Product{
     @prop({required:true ,  lowercase:true})
     url:Url
 
+    @prop({required:true})
+    description:string
+
     @prop({ type:()=> [String] ,required:true})
     tags:string[]
 }

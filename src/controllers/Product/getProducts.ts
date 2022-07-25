@@ -19,6 +19,7 @@ export const GET_PRODUCT = async (
                             price:el.price,
                             stock:el.stock,
                             url:el.url,
+                            description:el.description,
                             tags:el.tags.map((e:string)=>{return e}),
                         });
                     });
