@@ -25,12 +25,11 @@ const CREATE_PRODUCT = (req, res, _next) => __awaiter(void 0, void 0, void 0, fu
             }
             else {
                 let color = `stock.${stock.color}.${stock.talle}`;
-                const existStock = yield Stock_1.StockModel.findOneAndUpdate({ _id: stock._id }, { $inc: { [color]: `${stock.increase}` } }, { returnNewDocument: true });
+                const existStock = yield Stock_1.StockModel.findOneAndUpdate({ _id: stock._id }, { $inc: { [color]: stock.increase } });
                 if (!existStock) {
                     throw new Error('No se encontro el stock solicitado');
                 }
                 else {
-                    console.log("CAMBIADO", existStock);
                     const createProduct = {
                         name: name,
                         price: price,
@@ -50,7 +49,8 @@ const CREATE_PRODUCT = (req, res, _next) => __awaiter(void 0, void 0, void 0, fu
         }
     }
     catch (error) {
-        res.status(400).json(`Error en el controller CREATE_PRODUCT: ${error.mesagge}`);
+        res.status(400).json(`Error en el controller CREATE_PRODUCT: ${error}`);
     }
 });
 exports.CREATE_PRODUCT = CREATE_PRODUCT;
+/* Este controller crea un producto y actualiza el stock de 1 color de 1 talle */ 
