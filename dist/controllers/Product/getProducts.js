@@ -24,6 +24,7 @@ const GET_PRODUCT = (_req, res, _next) => __awaiter(void 0, void 0, void 0, func
                     price: el.price,
                     stock: el.stock,
                     url: el.url,
+                    description: el.description,
                     tags: el.tags.map((e) => { return e; }),
                 });
             });
