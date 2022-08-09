@@ -13,11 +13,11 @@ exports.GET_USER_BY_EMAIL = void 0;
 /* import { UserMapped } from "../../interfaces/User"; */
 const User_1 = require("../../models/User");
 const GET_USER_BY_EMAIL = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
-    const { email, nickname } = req.query;
+    const { email, nickname, picture } = req.query;
     try {
         if (email) {
             const userByMail = yield User_1.UserModel.findOneAndUpdate({
-                email: email, nickname: nickname
+                email: email, nickname: nickname, picture: picture
             }, {
                 $setOnInsert: { hola: 'me cree' }
             }, {

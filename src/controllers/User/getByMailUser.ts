@@ -3,13 +3,13 @@ import { NextFunction, Request, Response } from "express";
 import { UserModel } from "../../models/User";
 
 export const GET_USER_BY_EMAIL = async (req: Request, res: Response, _next: NextFunction) => {
-    const {email, nickname} = req.query;
+    const {email, nickname, picture} = req.query;
         try{
             if(email){
                 const userByMail = await UserModel.findOneAndUpdate({
                     email:email, nickname:nickname
                 },{
-                    $setOnInsert:{hola:'me cree'}
+                    picture:picture
                 },
                 {
                     returnOriginal: false,
