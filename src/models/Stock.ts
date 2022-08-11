@@ -2,7 +2,6 @@ import {prop , getModelForClass} from '@typegoose/typegoose';
 import { StockInterface } from '../interfaces/Stock';
 
 
-
 export class Stock{
     @prop({required:true, trim:true})
     name:string

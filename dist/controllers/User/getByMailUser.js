@@ -17,9 +17,9 @@ const GET_USER_BY_EMAIL = (req, res, _next) => __awaiter(void 0, void 0, void 0,
     try {
         if (email) {
             const userByMail = yield User_1.UserModel.findOneAndUpdate({
-                email: email, nickname: nickname, picture: picture
+                email: email, nickname: nickname
             }, {
-                $setOnInsert: { hola: 'me cree' }
+                picture: picture
             }, {
                 returnOriginal: false,
                 upsert: true
