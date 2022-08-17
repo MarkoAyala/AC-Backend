@@ -1,0 +1,10 @@
+"use strict";
+const express_1 = require("express");
+const getImages_1 = require("../controllers/ImagesController/getImages");
+const editImages_1 = require("../controllers/ImagesController/editImages");
+const postImages_1 = require("../controllers/ImagesController/postImages");
+const router = (0, express_1.Router)();
+router.get('/', getImages_1.GET_IMAGES);
+router.put('/', editImages_1.EDIT_IMAGES);
+router.post('/', postImages_1.POST_IMAGES);
+module.exports = router;
