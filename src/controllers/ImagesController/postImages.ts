@@ -10,9 +10,10 @@ export const POST_IMAGES = async (
         try{
             const {
                 name,
-                url
+                url,
+                public_id
             }:ImagesMapped = req.body;
-            if(!name || !url){
+            if(!name || !url || !public_id){
                 throw new Error('Debe completar todos los campos.');
             }else{
                 const existImage = await ImagesModel.findOne({name:name});
@@ -21,7 +22,8 @@ export const POST_IMAGES = async (
                 }else{
                     const createImage = {
                         name:name,
-                        url:url
+                        url:url,
+                        public_id:public_id
                     };
                     const created = await ImagesModel.create(createImage);
                     if(created){

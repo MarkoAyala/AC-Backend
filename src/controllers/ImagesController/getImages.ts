@@ -14,7 +14,8 @@ export const GET_IMAGES = async (
                     return({
                         _id:el._id,
                         name:el.name,
-                        url:el.url
+                        url:el.url,
+                        public_id:el.public_id
                     });
                 });
                 res.status(200).json(allImagesMapped);

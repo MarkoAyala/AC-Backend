@@ -7,6 +7,10 @@ export class Images{
 
     @prop({requied:true})
     url:string
+
+    @prop({requied:true})
+    public_id:string
+
 }
 
 export const ImagesModel = getModelForClass(Images);

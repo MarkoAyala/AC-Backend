@@ -9,16 +9,16 @@ export const EDIT_IMAGES = async (
     ) => {
         try{
             const {
-                _id,
                 name,
-                url
+                url,
+                public_id
             } = req.body;
-            if(!_id){
+            if(!name){
                 throw new Error('Ha ocurrido un error al editar image');
             }else{
-                const imageEdited = await ImagesModel.updateOne({_id:_id},{
-                    name: name && name,
-                    url: url && url
+                const imageEdited = await ImagesModel.updateOne({name:name},{
+                    url: url && url,
+                    public_id:public_id && public_id
                 });
                 res.status(200).json(imageEdited);
             }
