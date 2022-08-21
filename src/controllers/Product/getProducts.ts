@@ -20,7 +20,7 @@ export const GET_PRODUCT = async (
                             stock:el.stock,
                             url:el.url,
                             description:el.description,
-                            tags:el.tags.map((e:string)=>{return e}),
+                            tags:el.tags.filter((e:string)=>e !== ''),
                         });
                     });
                     res.status(200).json(allProductsMapped);

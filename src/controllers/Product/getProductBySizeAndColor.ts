@@ -3,16 +3,16 @@ import {ProductModel , Product} from "../../models/Product";
 //import { ProductMapped } from "../../interfaces/Product";
 
 
-export const GET_PRODUCT_BY_SIZE = async (
+export const GET_PRODUCT_BY_SIZE_AND_COLOR = async (
     req: Request,
     res: Response,
-    next: NextFunction
+    _next: NextFunction
     ) => {
-     if (req.query.size && req.query.color) next();
-    else{
-        const {size}:any = req.query;
+     //if (req.query.size && req.query.color) next();
+    //else{
+        const {size , color}:any = req.query;
     try{
-        if(!size){
+        if(!size || !color){
             throw new Error('Debe completar los campos correctamente.');
         }else{
             const allProducts: Array<Product> = await ProductModel.find({}).populate("stock");
@@ -21,7 +21,7 @@ export const GET_PRODUCT_BY_SIZE = async (
                     let product;
                     el.stock.stock.forEach((stockeado:any)=>{
                         for(let property in stockeado[0]){
-                            if(stockeado[0][property][size]>0){
+                            if(stockeado[0][property][size]>0 && property === color){
                                 product =  true
                             }
                         }
@@ -38,12 +38,12 @@ export const GET_PRODUCT_BY_SIZE = async (
                                  });
                     }
                     });
-                    const result = allProductsMapped.filter((e:any)=> e !== undefined);
+                    const result = allProductsMapped.filter((e:any)=> e !== undefined)
                     res.status(200).json(result);
                 }
         }
         }catch(err:any | unknown){
             res.status(400).send(`Error en controller GET_USER: ${err.message}`);
     }
-    }
+    //}
 }
