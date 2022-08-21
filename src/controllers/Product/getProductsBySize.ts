@@ -8,7 +8,7 @@ export const GET_PRODUCT_BY_SIZE = async (
     res: Response,
     next: NextFunction
     ) => {
-     if (req.query.size && req.query.color) next();
+     if ((req.query.size && req.query.color) || req.query.color) next();
     else{
         const {size}:any = req.query;
     try{

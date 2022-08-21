@@ -26,7 +26,7 @@ const GET_PRODUCT = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
                         stock: el.stock,
                         url: el.url,
                         description: el.description,
-                        tags: el.tags.map((e) => { return e; }),
+                        tags: el.tags.filter((e) => e !== ''),
                     });
                 });
                 res.status(200).json(allProductsMapped);

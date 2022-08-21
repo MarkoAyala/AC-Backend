@@ -13,7 +13,7 @@ exports.GET_PRODUCT_BY_SIZE = void 0;
 const Product_1 = require("../../models/Product");
 //import { ProductMapped } from "../../interfaces/Product";
 const GET_PRODUCT_BY_SIZE = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    if (req.query.size && req.query.color)
+    if ((req.query.size && req.query.color) || req.query.color)
         next();
     else {
         const { size } = req.query;
@@ -41,11 +41,12 @@ const GET_PRODUCT_BY_SIZE = (req, res, next) => __awaiter(void 0, void 0, void 0
                                 stock: el.stock,
                                 url: el.url,
                                 description: el.description,
-                                tags: el.tags.map((e) => { return e; }),
+                                tags: el.tags.filter((e) => e !== ''),
                             });
                         }
                     });
-                    res.status(200).json(allProductsMapped);
+                    const result = allProductsMapped.filter((e) => e !== undefined);
+                    res.status(200).json(result);
                 }
             }
         }

@@ -2,16 +2,14 @@ import { NextFunction, Request, Response } from "express";
 import {ProductModel , Product} from "../../models/Product";
 
 
-export const GET_PRODUCT_BY_SIZE_AND_COLOR = async (
+export const GET_PRODUCT_BY_COLOR = async (
     req: Request,
     res: Response,
-    next: NextFunction
+    _next: NextFunction
     ) => {
-    if (!req.query.size && req.query.color) next();
-    else{
-        const {size , color}:any = req.query;
+        const {color}:any = req.query;
     try{
-        if(!size || !color){
+        if(!color){
             throw new Error('Debe completar los campos correctamente.');
         }else{
             const allProducts: Array<Product> = await ProductModel.find({}).populate("stock");
@@ -20,7 +18,7 @@ export const GET_PRODUCT_BY_SIZE_AND_COLOR = async (
                     let product;
                     el.stock.stock.forEach((stockeado:any)=>{
                         for(let property in stockeado[0]){
-                            if(stockeado[0][property][size]>0 && property === color){
+                            if(property === color && (stockeado[0][property].xs >0 || stockeado[0][property].s >0 || stockeado[0][property].m >0 || stockeado[0][property].l >0 || stockeado[0][property].xl >0 || stockeado[0][property].xxl >0)){
                                 product =  true
                             }
                         }
@@ -44,5 +42,4 @@ export const GET_PRODUCT_BY_SIZE_AND_COLOR = async (
         }catch(err:any | unknown){
             res.status(400).send(`Error en controller GET_USER: ${err.message}`);
     }
-}
 }
