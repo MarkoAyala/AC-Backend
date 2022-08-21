@@ -3,12 +3,12 @@ import {ProductModel , Product} from "../../models/Product";
 import { ProductMapped } from "../../interfaces/Product";
 
 export const GET_PRODUCT = async (
-    _req: Request,
+    req: Request,
     res: Response,
-    _next: NextFunction
+    next: NextFunction
     ) => {
-        //if (req.query.email || req.query.user_name || req.params.id) next();
-       // else{
+        if (req.query.size) next();
+       else{
             try{
                 const allProducts: Array<Product> = await ProductModel.find({}).populate("stock");
                 if(allProducts){
@@ -28,5 +28,5 @@ export const GET_PRODUCT = async (
             }catch(err:any | unknown){
                 res.status(400).send(`Error en controller GET_USER: ${err.message}`);
             }
-     //   }
+        }
     }

@@ -9,16 +9,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GET_PRODUCT = void 0;
+exports.GET_PRODUCT_BY_SIZE = void 0;
 const Product_1 = require("../../models/Product");
-const GET_PRODUCT = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    if (req.query.size)
-        next();
-    else {
-        try {
-            const allProducts = yield Product_1.ProductModel.find({}).populate("stock");
-            if (allProducts) {
-                const allProductsMapped = allProducts.map((el) => {
+//import { ProductMapped } from "../../interfaces/Product";
+const GET_PRODUCT_BY_SIZE = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
+    // if (req.query.size) next();
+    //else{
+    const { size } = req.query;
+    try {
+        const allProducts = yield Product_1.ProductModel.find({}).populate("stock");
+        if (allProducts) {
+            const allProductsMapped = allProducts.map((el) => {
+                let product = el.stock.stock.forEach((stockeado) => {
+                    if (stockeado[size] > 0) {
+                        return true;
+                    }
+                });
+                if (product === true) {
                     return ({
                         _id: el._id,
                         name: el.name,
@@ -28,13 +35,14 @@ const GET_PRODUCT = (req, res, next) => __awaiter(void 0, void 0, void 0, functi
                         description: el.description,
                         tags: el.tags.map((e) => { return e; }),
                     });
-                });
-                res.status(200).json(allProductsMapped);
-            }
-        }
-        catch (err) {
-            res.status(400).send(`Error en controller GET_USER: ${err.message}`);
+                }
+            });
+            res.status(200).json(allProductsMapped);
         }
     }
+    catch (err) {
+        res.status(400).send(`Error en controller GET_USER: ${err.message}`);
+    }
+    //}
 });
-exports.GET_PRODUCT = GET_PRODUCT;
+exports.GET_PRODUCT_BY_SIZE = GET_PRODUCT_BY_SIZE;

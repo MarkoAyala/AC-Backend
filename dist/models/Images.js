@@ -21,5 +21,9 @@ __decorate([
     (0, typegoose_1.prop)({ requied: true }),
     __metadata("design:type", String)
 ], Images.prototype, "url", void 0);
+__decorate([
+    (0, typegoose_1.prop)({ requied: true }),
+    __metadata("design:type", String)
+], Images.prototype, "public_id", void 0);
 exports.Images = Images;
 exports.ImagesModel = (0, typegoose_1.getModelForClass)(Images);

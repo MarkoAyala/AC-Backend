@@ -13,8 +13,8 @@ exports.POST_IMAGES = void 0;
 const Images_1 = require("../../models/Images");
 const POST_IMAGES = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { name, url } = req.body;
-        if (!name || !url) {
+        const { name, url, public_id } = req.body;
+        if (!name || !url || !public_id) {
             throw new Error('Debe completar todos los campos.');
         }
         else {
@@ -25,7 +25,8 @@ const POST_IMAGES = (req, res, _next) => __awaiter(void 0, void 0, void 0, funct
             else {
                 const createImage = {
                     name: name,
-                    url: url
+                    url: url,
+                    public_id: public_id
                 };
                 const created = yield Images_1.ImagesModel.create(createImage);
                 if (created) {

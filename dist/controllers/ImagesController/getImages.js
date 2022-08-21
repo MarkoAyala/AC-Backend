@@ -19,7 +19,8 @@ const GET_IMAGES = (_req, res, _next) => __awaiter(void 0, void 0, void 0, funct
                 return ({
                     _id: el._id,
                     name: el.name,
-                    url: el.url
+                    url: el.url,
+                    public_id: el.public_id
                 });
             });
             res.status(200).json(allImagesMapped);

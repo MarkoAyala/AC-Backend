@@ -13,14 +13,14 @@ exports.EDIT_IMAGES = void 0;
 const Images_1 = require("../../models/Images");
 const EDIT_IMAGES = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { _id, name, url } = req.body;
-        if (!_id) {
+        const { name, url, public_id } = req.body;
+        if (!name) {
             throw new Error('Ha ocurrido un error al editar image');
         }
         else {
-            const imageEdited = yield Images_1.ImagesModel.updateOne({ _id: _id }, {
-                name: name && name,
-                url: url && url
+            const imageEdited = yield Images_1.ImagesModel.updateOne({ name: name }, {
+                url: url && url,
+                public_id: public_id && public_id
             });
             res.status(200).json(imageEdited);
         }

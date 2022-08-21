@@ -2,7 +2,9 @@
 const express_1 = require("express");
 const postProduct_1 = require("../controllers/Product/postProduct");
 const getProducts_1 = require("../controllers/Product/getProducts");
+const getProductsBySize_1 = require("../controllers/Product/getProductsBySize");
 const router = (0, express_1.Router)();
 router.post("/", postProduct_1.CREATE_PRODUCT);
 router.get('/', getProducts_1.GET_PRODUCT);
+router.get('/', getProductsBySize_1.GET_PRODUCT_BY_SIZE);
 module.exports = router;
