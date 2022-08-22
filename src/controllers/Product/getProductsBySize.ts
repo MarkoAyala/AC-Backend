@@ -27,7 +27,7 @@ export const GET_PRODUCT_BY_SIZE = async (
                                             product =  true
                                         }
                                     }
-                                })
+                                });
                             }
                             if(product === true){
                                 return ({
