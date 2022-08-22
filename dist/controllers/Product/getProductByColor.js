@@ -22,7 +22,6 @@ const GET_PRODUCT_BY_COLOR = (req, res, _next) => __awaiter(void 0, void 0, void
             if (allProducts) {
                 const allProductsMapped = allProducts.map((el) => {
                     let product;
-                    console.log('llegue');
                     el.stock.stock.forEach((stockeado) => {
                         for (let property in stockeado[0]) {
                             if (property === color && (stockeado[0][property].xs > 0 || stockeado[0][property].s > 0 || stockeado[0][property].m > 0 || stockeado[0][property].l > 0 || stockeado[0][property].xl > 0 || stockeado[0][property].xxl > 0)) {
@@ -48,7 +47,7 @@ const GET_PRODUCT_BY_COLOR = (req, res, _next) => __awaiter(void 0, void 0, void
         }
     }
     catch (err) {
-        res.status(400).send(`Error en controller GET_USER: ${err.message}`);
+        res.status(400).send(`Error en controller GET_PRODUCT_BY_COLOR: ${err.message}`);
     }
 });
 exports.GET_PRODUCT_BY_COLOR = GET_PRODUCT_BY_COLOR;

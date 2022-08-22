@@ -7,7 +7,7 @@ export const GET_PRODUCT = async (
     res: Response,
     next: NextFunction
     ) => {
-        if (req.query.size || req.query.color) next();
+        if (req.query.size || req.query.color || req.query.tags) next();
        else{
             try{
                 const allProducts: Array<Product> = await ProductModel.find({}).populate("stock");
@@ -26,7 +26,7 @@ export const GET_PRODUCT = async (
                     res.status(200).json(allProductsMapped);
                 }
             }catch(err:any | unknown){
-                res.status(400).send(`Error en controller GET_USER: ${err.message}`);
+                res.status(400).send(`Error en controller GET_PRODUCT: ${err.message}`);
             }
         }
     }

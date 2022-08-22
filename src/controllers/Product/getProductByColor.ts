@@ -40,6 +40,6 @@ export const GET_PRODUCT_BY_COLOR = async (
                 }
         }
         }catch(err:any | unknown){
-            res.status(400).send(`Error en controller GET_USER: ${err.message}`);
+            res.status(400).send(`Error en controller GET_PRODUCT_BY_COLOR: ${err.message}`);
     }
 }
