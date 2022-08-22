@@ -15,7 +15,7 @@ const GET_PRODUCT_BY_SIZE_AND_COLOR = (req, res, next) => __awaiter(void 0, void
     if (!req.query.size && req.query.color)
         next();
     else {
-        const { size, color } = req.query;
+        const { size, color, tags } = req.query;
         try {
             if (!size || !color) {
                 throw new Error('Debe completar los campos correctamente.');
@@ -23,29 +23,58 @@ const GET_PRODUCT_BY_SIZE_AND_COLOR = (req, res, next) => __awaiter(void 0, void
             else {
                 const allProducts = yield Product_1.ProductModel.find({}).populate("stock");
                 if (allProducts) {
-                    const allProductsMapped = allProducts.map((el) => {
-                        let product;
-                        el.stock.stock.forEach((stockeado) => {
-                            for (let property in stockeado[0]) {
-                                if (stockeado[0][property][size] > 0 && property === color) {
-                                    product = true;
-                                }
+                    if (tags) {
+                        const allProductsMapped = allProducts.map((el) => {
+                            let product;
+                            if (el.tags.includes(tags)) {
+                                el.stock.stock.forEach((stockeado) => {
+                                    for (let property in stockeado[0]) {
+                                        if (stockeado[0][property][size] > 0 && property === color) {
+                                            product = true;
+                                        }
+                                    }
+                                });
+                            }
+                            if (product === true) {
+                                return ({
+                                    _id: el._id,
+                                    name: el.name,
+                                    price: el.price,
+                                    stock: el.stock,
+                                    url: el.url,
+                                    description: el.description,
+                                    tags: el.tags.filter((e) => e !== ''),
+                                });
                             }
                         });
-                        if (product === true) {
-                            return ({
-                                _id: el._id,
-                                name: el.name,
-                                price: el.price,
-                                stock: el.stock,
-                                url: el.url,
-                                description: el.description,
-                                tags: el.tags.filter((e) => e !== ''),
+                        const result = allProductsMapped.filter((e) => e !== undefined);
+                        res.status(200).json(result);
+                    }
+                    else {
+                        const allProductsMapped = allProducts.map((el) => {
+                            let product;
+                            el.stock.stock.forEach((stockeado) => {
+                                for (let property in stockeado[0]) {
+                                    if (stockeado[0][property][size] > 0 && property === color) {
+                                        product = true;
+                                    }
+                                }
                             });
-                        }
-                    });
-                    const result = allProductsMapped.filter((e) => e !== undefined);
-                    res.status(200).json(result);
+                            if (product === true) {
+                                return ({
+                                    _id: el._id,
+                                    name: el.name,
+                                    price: el.price,
+                                    stock: el.stock,
+                                    url: el.url,
+                                    description: el.description,
+                                    tags: el.tags.filter((e) => e !== ''),
+                                });
+                            }
+                        });
+                        const result = allProductsMapped.filter((e) => e !== undefined);
+                        res.status(200).json(result);
+                    }
                 }
             }
         }

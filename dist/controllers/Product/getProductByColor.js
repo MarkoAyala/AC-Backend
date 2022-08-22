@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GET_PRODUCT_BY_COLOR = void 0;
 const Product_1 = require("../../models/Product");
 const GET_PRODUCT_BY_COLOR = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
-    const { color } = req.query;
+    const { color, tags } = req.query;
     try {
         if (!color) {
             throw new Error('Debe completar los campos correctamente.');
@@ -20,29 +20,58 @@ const GET_PRODUCT_BY_COLOR = (req, res, _next) => __awaiter(void 0, void 0, void
         else {
             const allProducts = yield Product_1.ProductModel.find({}).populate("stock");
             if (allProducts) {
-                const allProductsMapped = allProducts.map((el) => {
-                    let product;
-                    el.stock.stock.forEach((stockeado) => {
-                        for (let property in stockeado[0]) {
-                            if (property === color && (stockeado[0][property].xs > 0 || stockeado[0][property].s > 0 || stockeado[0][property].m > 0 || stockeado[0][property].l > 0 || stockeado[0][property].xl > 0 || stockeado[0][property].xxl > 0)) {
-                                product = true;
-                            }
+                if (tags) {
+                    const allProductsMapped = allProducts.map((el) => {
+                        let product;
+                        if (el.tags.includes(tags)) {
+                            el.stock.stock.forEach((stockeado) => {
+                                for (let property in stockeado[0]) {
+                                    if (property === color && (stockeado[0][property].xs > 0 || stockeado[0][property].s > 0 || stockeado[0][property].m > 0 || stockeado[0][property].l > 0 || stockeado[0][property].xl > 0 || stockeado[0][property].xxl > 0)) {
+                                        product = true;
+                                    }
+                                }
+                            });
+                        }
+                        if (product === true) {
+                            return ({
+                                _id: el._id,
+                                name: el.name,
+                                price: el.price,
+                                stock: el.stock,
+                                url: el.url,
+                                description: el.description,
+                                tags: el.tags.filter((e) => e !== ''),
+                            });
                         }
                     });
-                    if (product === true) {
-                        return ({
-                            _id: el._id,
-                            name: el.name,
-                            price: el.price,
-                            stock: el.stock,
-                            url: el.url,
-                            description: el.description,
-                            tags: el.tags.filter((e) => e !== ''),
+                    const result = allProductsMapped.filter((e) => e !== undefined);
+                    res.status(200).json(result);
+                }
+                else {
+                    const allProductsMapped = allProducts.map((el) => {
+                        let product;
+                        el.stock.stock.forEach((stockeado) => {
+                            for (let property in stockeado[0]) {
+                                if (property === color && (stockeado[0][property].xs > 0 || stockeado[0][property].s > 0 || stockeado[0][property].m > 0 || stockeado[0][property].l > 0 || stockeado[0][property].xl > 0 || stockeado[0][property].xxl > 0)) {
+                                    product = true;
+                                }
+                            }
                         });
-                    }
-                });
-                const result = allProductsMapped.filter((e) => e !== undefined);
-                res.status(200).json(result);
+                        if (product === true) {
+                            return ({
+                                _id: el._id,
+                                name: el.name,
+                                price: el.price,
+                                stock: el.stock,
+                                url: el.url,
+                                description: el.description,
+                                tags: el.tags.filter((e) => e !== ''),
+                            });
+                        }
+                    });
+                    const result = allProductsMapped.filter((e) => e !== undefined);
+                    res.status(200).json(result);
+                }
             }
         }
     }
@@ -51,3 +80,4 @@ const GET_PRODUCT_BY_COLOR = (req, res, _next) => __awaiter(void 0, void 0, void
     }
 });
 exports.GET_PRODUCT_BY_COLOR = GET_PRODUCT_BY_COLOR;
+//8.45 30 martes 2dopiso
