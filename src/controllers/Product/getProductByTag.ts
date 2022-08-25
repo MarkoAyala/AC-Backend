@@ -25,7 +25,7 @@ export const GET_PRODUCT_BY_TAG = async (
                             });
                         }
                     });
-                    const result = allProductsMapped.filter((e:any)=> e !== null)
+                    const result = allProductsMapped.filter((e:any)=> e !== undefined)
                     res.status(200).json(result);
                 }
             }catch(err:any | unknown){

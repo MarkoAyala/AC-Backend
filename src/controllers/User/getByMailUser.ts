@@ -17,7 +17,7 @@ export const GET_USER_BY_EMAIL = async (req: Request, res: Response, _next: Next
                 });
                 res.status(200).json(userByMail);
             }else{
-                res.status(400).send('No se encontró el usuario requerido.,')
+                res.status(400).send('No se encontró el usuario requerido.')
              }
             }catch(err: any | unknown){
                 res.status(400).send(`Error en el controller GET_USER_BY_MAIL: ${err.message}`);
