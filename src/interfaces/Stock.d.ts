@@ -1,7 +1,7 @@
 export interface StockInterface {
-    black?:{
+    negro?:{
         code:string
-        stock_black:number | 0;
+        stock_negro:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -9,9 +9,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    white?:{
+    blanco?:{
         code:string
-        stock_white:number | 0;
+        stock_blanco:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -29,9 +29,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    gray?:{
+    gris?:{
         code:string
-        stock_gray:number | 0;
+        stock_gris:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -39,9 +39,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    french_blue?:{
+    azul_francia?:{
         code:string
-        stock_french_blue:number | 0;
+        stock_azul_francia:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -49,9 +49,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    navy_blue?:{
+    azul_marino?:{
         code:string
-        stock_navy_blue:number | 0;
+        stock_azul_marino:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -59,9 +59,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    blue?:{
+    azul?:{
         code:string
-        stock_blue:number | 0;
+        stock_azul:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -69,9 +69,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    silver?:{
+    plata?:{
         code:string
-        stock_silver:number | 0;
+        stock_plata:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -79,9 +79,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    chalk?:{
+    tiza?:{
         code:string
-        stock_chalk:number | 0;
+        stock_tiza:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -89,9 +89,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    golden?:{
+    dorado?:{
         code:string
-        stock_golden:number | 0;
+        stock_dorado:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -99,9 +99,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    brown?:{
+    marron?:{
         code:string
-        stock_brown:number | 0;
+        stock_marron:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -109,9 +109,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    havana_brown?:{
+    marron_havana?:{
         code:string
-        stock_havana_brown:number | 0;
+        stock_marron_havana:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -119,9 +119,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    brown_sole:{
+    marron_suela?:{
         code:string
-        stock_brown_sole:number | 0;
+        stock_marron_suela:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -129,9 +129,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    coffee_brown:{
+    marron_cafe?:{
         code:string
-        stock_coffee_brown:number | 0;
+        stock_marron_cafe:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -139,9 +139,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    board:{
+    bordo?:{
         code:string
-        stock_board:number | 0;
+        stock_bordo:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -149,9 +149,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    green:{
+    verde?:{
         code:string
-        stock_green:number | 0;
+        stock_verde:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -159,9 +159,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    dark_green?:{
+    verde_oscuro?:{
         code:string
-        stock_dark_green:number | 0;
+        stock_verde_oscuro:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -169,9 +169,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    light_green?:{
+    verde_claro?:{
         code:string
-        stock_light_green:number | 0;
+        stock_verde_claro:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -179,9 +179,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    mint_green?:{
+    verde_menta?:{
         code:string
-        stock_mint_green:number | 0;
+        stock_verde_menta:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -189,9 +189,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    olive_green?:{
+    verde_oliva?:{
         code:string
-        stock_olive_green:number | 0;
+        stock_verde_oliva:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -199,9 +199,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    cherry?:{
+    cereza?:{
         code:string
-        stock_cherry:number | 0;
+        stock_cereza:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -209,9 +209,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    fuchsia?:{
+    fucsia?:{
         code:string
-        stock_fuchsia:number | 0;
+        stock_fucsia:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -219,9 +219,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    purple?:{
+    morado?:{
         code:string
-        stock_purple:number | 0;
+        stock_morado:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -229,9 +229,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    copper?:{
+    cobre?:{
         code:string
-        stock_copper:number | 0;
+        stock_cobre:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -249,9 +249,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    turquoise?:{
+    turquesa?:{
         code:string
-        stock_turquoise:number | 0;
+        stock_turquesa:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -259,9 +259,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    red?:{
+    rojo?:{
         code:string
-        stock_red:number | 0;
+        stock_rojo:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -269,9 +269,9 @@ export interface StockInterface {
         xl:number | 0;
         xxl:number | 0;
     },
-    yellow?:{
+    amarillo?:{
         code:string
-        stock_yellow:number | 0;
+        stock_amarillo:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -282,10 +282,10 @@ export interface StockInterface {
     all:number | 0;
 }
 
-interface Red {
-    red?:{
+interface Rojo {
+    rojo?:{
         code:string
-        stock_red:number | 0;
+        stock_rojo:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -294,10 +294,10 @@ interface Red {
         xxl:number | 0;
     }
 }
-interface Yellow{
-    yellow?:{
+interface Amarillo{
+    amarillo?:{
         code:string
-        stock_yellow:number | 0;
+        stock_amarillo:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -307,10 +307,10 @@ interface Yellow{
     },
 }
 
-interface Chalk{
-    chalk?:{
+interface Tiza{
+    tiza?:{
         code:string
-        stock_chalk:number | 0;
+        stock_tiza:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -319,10 +319,10 @@ interface Chalk{
         xxl:number | 0;
     },
 }
-interface Brown{
-    brown?:{
+interface Marron{
+    marron?:{
         code:string
-        stock_brown:number | 0;
+        stock_marron:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -331,10 +331,10 @@ interface Brown{
         xxl:number | 0;
     },
 }
-interface Havana_Brown{
-    havana_brown?:{
+interface Marron_Havana{
+    marron_havana?:{
         code:string
-        stock_havana_brown:number | 0;
+        stock_marron_havana:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -343,10 +343,10 @@ interface Havana_Brown{
         xxl:number | 0;
     },
 }
-interface Brown_Sole{
-    brown_sole?:{
+interface Marron_Suela{
+    marron_suela?:{
         code:string
-        stock_brown_sole:number | 0;
+        stock_marron_suela:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -355,10 +355,10 @@ interface Brown_Sole{
         xxl:number | 0;
     },
 }
-interface Coffee_Brown{
-    coffee_brown?:{
+interface Marron_Cafe{
+    marron_cafe?:{
         code:string
-        stock_coffee_brown:number | 0;
+        stock_marron_cafe:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -367,10 +367,10 @@ interface Coffee_Brown{
         xxl:number | 0;
     },
 }
-interface Cherry{
-    cherry?:{
+interface Cereza{
+    cereza?:{
         code:string
-        stock_cherry:number | 0;
+        stock_cereza:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -379,10 +379,10 @@ interface Cherry{
         xxl:number | 0;
     },
 }
-interface Board{
-    board?:{
+interface Bordo{
+    bordo?:{
         code:string
-        stock_board:number | 0;
+        stock_bordo:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -391,10 +391,10 @@ interface Board{
         xxl:number | 0;
     },
 }
-interface Fuchsia{
-    fuchsia?:{
+interface Fucsia{
+    fucsia?:{
         code:string
-        stock_fuchsia:number | 0;
+        stock_fucsia:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -403,10 +403,10 @@ interface Fuchsia{
         xxl:number | 0;
     },
 }
-interface Purple{
-    purple?:{
+interface Morado{
+    morado?:{
         code:string
-        stock_purple:number | 0;
+        stock_morado:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -415,10 +415,10 @@ interface Purple{
         xxl:number | 0;
     },
 }
-interface Green{
-    green?:{
+interface Verde{
+    verde?:{
         code:string
-        stock_green:number | 0;
+        stock_verde:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -427,10 +427,10 @@ interface Green{
         xxl:number | 0;
     },
 }
-interface Dark_Green{
-    dark_green?:{
+interface Verde_Oscuro{
+    verde_oscuro?:{
         code:string
-        stock_dark_green:number | 0;
+        stock_verde_oscuro:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -439,10 +439,10 @@ interface Dark_Green{
         xxl:number | 0;
     },
 }
-interface Light_Green{
-    light_green?:{
+interface Verde_Claro{
+    verde_claro?:{
         code:string
-        stock_light_green:number | 0;
+        stock_verde_claro:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -451,10 +451,10 @@ interface Light_Green{
         xxl:number | 0;
     },
 }
-interface Mint_Green{
-    mint_green?:{
+interface Verde_Menta{
+    verde_menta?:{
         code:string
-        stock_mint_green:number | 0;
+        stock_verde_menta:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -463,10 +463,10 @@ interface Mint_Green{
         xxl:number | 0;
     },
 }
-interface Olive_Green{
-    olive_green?:{
+interface Verde_Oliva{
+    verde_oliva?:{
         code:string
-        stock_olive_green:number | 0;
+        stock_verde_oliva:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -475,10 +475,10 @@ interface Olive_Green{
         xxl:number | 0;
     },
 }
-interface Gray{
-    gray?:{
+interface Gris{
+    gris?:{
         code:string
-        stock_gray:number | 0;
+        stock_gris:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -487,10 +487,10 @@ interface Gray{
         xxl:number | 0;
     },
 }
-interface Silver{
-    silver?:{
+interface Plata{
+    plata?:{
         code:string
-        stock_silver:number | 0;
+        stock_plata:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -499,10 +499,10 @@ interface Silver{
         xxl:number | 0;
     },
 }
-interface Golden{
-    golden?:{
+interface Dorado{
+    dorado?:{
         code:string
-        stock_golden:number | 0;
+        stock_dorado:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -511,10 +511,10 @@ interface Golden{
         xxl:number | 0;
     },
 }
-interface Copper{
-    copper?:{
+interface Cobre{
+    cobre?:{
         code:string
-        stock_copper:number | 0;
+        stock_cobre:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -535,10 +535,10 @@ interface Camel{
         xxl:number | 0;
     },
 }
-interface Blue{
-    blue?:{
+interface Azul{
+    azul?:{
         code:string
-        stock_blue:number | 0;
+        stock_azul:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -547,10 +547,10 @@ interface Blue{
         xxl:number | 0;
     },
 }
-interface Navy_Blue{
-    navy_blue?:{
+interface Azul_Marino{
+    azul_marino?:{
         code:string
-        stock_navy_blue:number | 0;
+        stock_azul_marino:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -559,10 +559,10 @@ interface Navy_Blue{
         xxl:number | 0;
     },
 }
-interface French_Blue{
-    french_blue?:{
+interface Azul_Francia{
+    azul_francia?:{
         code:string
-        stock_french_blue:number | 0;
+        stock_azul_francia:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -571,10 +571,10 @@ interface French_Blue{
         xxl:number | 0;
     },
 }
-interface Turquoise{
-    turquoise?:{
+interface Turquesa{
+    turquesa?:{
         code:string
-        stock_turquoise:number | 0;
+        stock_turquesa:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -595,10 +595,10 @@ interface Beige{
         xxl:number | 0;
     },
 }
-interface Black{
-    black?:{
+interface Negro{
+    negro?:{
         code:string
-        stock_black:number | 0;
+        stock_negro:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -607,10 +607,10 @@ interface Black{
         xxl:number | 0;
     },
 }
-interface White{
-    white?:{
+interface Blanco{
+    blanco?:{
         code:string
-        stock_white:number | 0;
+        stock_blanco:number | 0;
         xs:number | 0;
         s:number | 0;
         m:number | 0;
@@ -623,5 +623,5 @@ interface White{
 export interface StockMapped{
     _id:string;
     name:string;
-    stock:Array<Array<Black>,Array<White>,Array<Beige>,Array<Gray>,Array<Red>,Array<French_Blue>,Array<Navy_Blue>,Array<Blue>,Array<Silver>,Array<Chalk>,Array<Golden>,Array<Yellow>,Array<Brown>,Array<Havana_Brown>,Array<Brown_Sole>,Array<Coffee_Brown>,Array<Board>,Array<Green>,Array<Dark_Green>,Array<Light_Green>,Array<Mint_Green>,Array<Olive_Green>,Array<Cherry>,Array<Fuchsia>,Array<Purple>,Array<Copper>,Array<Camel>,Array<Turquoise>>
+    stock:Array<Array<Negro>,Array<Blanco>,Array<Beige>,Array<Gris>,Array<Red>,Array<Azul_Francia>,Array<Azul_Marino>,Array<Azul>,Array<Plata>,Array<Tiza>,Array<Dorado>,Array<Amarillo>,Array<Marron>,Array<Marron_Havana>,Array<Marron_Suela>,Array<Marron_Cafe>,Array<Bordo>,Array<Verde>,Array<Verde_Oscuro>,Array<Verde_Claro>,Array<Verde_Menta>,Array<Verde_Oliva>,Array<Cereza>,Array<Fucsia>,Array<Morado>,Array<Cobre>,Array<Camel>,Array<Turquesa>>
 }

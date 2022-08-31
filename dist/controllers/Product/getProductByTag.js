@@ -32,7 +32,7 @@ const GET_PRODUCT_BY_TAG = (req, res, next) => __awaiter(void 0, void 0, void 0,
                         });
                     }
                 });
-                const result = allProductsMapped.filter((e) => e !== null);
+                const result = allProductsMapped.filter((e) => e !== undefined);
                 res.status(200).json(result);
             }
         }

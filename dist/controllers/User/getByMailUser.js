@@ -27,7 +27,7 @@ const GET_USER_BY_EMAIL = (req, res, _next) => __awaiter(void 0, void 0, void 0,
             res.status(200).json(userByMail);
         }
         else {
-            res.status(400).send('No se encontró el usuario requerido.,');
+            res.status(400).send('No se encontró el usuario requerido.');
         }
     }
     catch (err) {
