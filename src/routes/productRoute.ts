@@ -5,23 +5,16 @@ import { GET_PRODUCT_BY_SIZE } from "../controllers/Product/getProductsBySize";
 import { GET_PRODUCT_BY_SIZE_AND_COLOR } from "../controllers/Product/getProductBySizeAndColor";
 import { GET_PRODUCT_BY_COLOR } from "../controllers/Product/getProductByColor";
 import { GET_PRODUCT_BY_TAG } from "../controllers/Product/getProductByTag";
+import { GET_PRODUCT_BY_ID } from "../controllers/Product/getProductById";
 const router = Router();
 
 router.post("/", CREATE_PRODUCT);
 router.get('/', GET_PRODUCT);
+router.get('/', GET_PRODUCT_BY_ID);
 router.get('/', GET_PRODUCT_BY_TAG);
 router.get('/', GET_PRODUCT_BY_SIZE);
 router.get('/', GET_PRODUCT_BY_SIZE_AND_COLOR);
 router.get('/', GET_PRODUCT_BY_COLOR);
-
-
-
-
-
-
-
-
-
 
 
 export = router;

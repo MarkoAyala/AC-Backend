@@ -7,7 +7,7 @@ export const GET_PRODUCT = async (
     res: Response,
     next: NextFunction
     ) => {
-        if (req.query.size || req.query.color || req.query.tags) next();
+        if (req.query.size || req.query.color || req.query.tags || req.query.id) next();
        else{
             try{
                 const allProducts: Array<Product> = await ProductModel.find({}).populate("stock");
