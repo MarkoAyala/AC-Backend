@@ -15,4 +15,5 @@ export interface UserMapped {
     role:number
     country:string
     shoppingCart?:Array<Product> | []
+    favorites?:Array<Product> | []
 }

@@ -14,7 +14,7 @@ export const GET_USER_BY_EMAIL = async (req: Request, res: Response, _next: Next
                 {
                     returnOriginal: false,
                     upsert:true
-                });
+                }).populate("favorites");
                 res.status(200).json(userByMail);
             }else{
                 res.status(400).send('No se encontró el usuario requerido.')

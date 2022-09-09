@@ -5,7 +5,7 @@ import {UserModel} from "../../models/User";
 export const EDIT_USER = async (req: Request , res:Response , _next:NextFunction) => {
     try{
         const {
-            id,
+            _id,
             firstName,
             lastName,
             nickname,
@@ -16,10 +16,10 @@ export const EDIT_USER = async (req: Request , res:Response , _next:NextFunction
             shoppingCart,
             favorites
           }= req.body;
-          if(!id){
+          if(!_id){
             throw new Error('Ha ocurrido un error al editar el usuario');
           }else{
-            const userEdited = await UserModel.updateOne({_id:id},{
+            const userEdited = await UserModel.updateOne({_id:_id},{
                 firstName: firstName && firstName,
                 lastName: lastName && lastName,
                 nickname: nickname && nickname,
