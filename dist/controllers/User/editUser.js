@@ -13,12 +13,12 @@ exports.EDIT_USER = void 0;
 const User_1 = require("../../models/User");
 const EDIT_USER = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { id, firstName, lastName, nickname, email, picture, role, country, shoppingCart, favorites } = req.body;
-        if (!id) {
+        const { _id, firstName, lastName, nickname, email, picture, role, country, shoppingCart, favorites } = req.body;
+        if (!_id) {
             throw new Error('Ha ocurrido un error al editar el usuario');
         }
         else {
-            const userEdited = yield User_1.UserModel.updateOne({ _id: id }, {
+            const userEdited = yield User_1.UserModel.updateOne({ _id: _id }, {
                 firstName: firstName && firstName,
                 lastName: lastName && lastName,
                 nickname: nickname && nickname,

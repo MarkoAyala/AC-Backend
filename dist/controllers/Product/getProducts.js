@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.GET_PRODUCT = void 0;
 const Product_1 = require("../../models/Product");
 const GET_PRODUCT = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    if (req.query.size || req.query.color || req.query.tags)
+    if (req.query.size || req.query.color || req.query.tags || req.query.id)
         next();
     else {
         try {
