@@ -24,7 +24,9 @@ const DELETE_PRODUCT = (req, res) => __awaiter(void 0, void 0, void 0, function*
                 for (let property in url) {
                     let index = url[property].indexOf('/AltoCuero');
                     let latest = url[property].indexOf('.png');
-                    let final = url[property].substring(index + 11, latest);
+                    let latest1 = url[property].indexOf('.jpg');
+                    let latest2 = url[property].indexOf('.jpeg');
+                    let final = url[property].substring(index + 11, latest !== -1 ? latest : latest1 !== -1 ? latest1 : latest2 !== -1 ? latest2 : null);
                     yield (0, cloudinary_1.destroyMultimedia)(`AltoCuero/${final}`);
                 }
                 res.status(200).json(`${deletedProduct.deletedCount} ha sido eliminado`);
