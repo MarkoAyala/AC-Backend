@@ -5,6 +5,7 @@ import { Request, Response } from "express";
 
 export const DELETE_PRODUCT = async (req: Request, res: Response) => {
     const { _id ,url }:any = req.body;
+    console.log(_id , url)
   try {
     if (!_id || !url) {
       throw new Error("The id entered is undefined or null, please try again.");

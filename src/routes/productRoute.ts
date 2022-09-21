@@ -14,7 +14,7 @@ router.get('/', GET_PRODUCT);
 router.get('/', GET_PRODUCT_BY_ID);
 router.get('/', GET_PRODUCT_BY_TAG);
 router.get('/', GET_PRODUCT_BY_SIZE);
-router.delete('/', DELETE_PRODUCT);
+router.put('/', DELETE_PRODUCT);
 router.get('/', GET_PRODUCT_BY_SIZE_AND_COLOR);
 router.get('/', GET_PRODUCT_BY_COLOR);
 

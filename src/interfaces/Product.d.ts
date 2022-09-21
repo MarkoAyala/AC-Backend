@@ -1,3 +1,4 @@
+import { StockMapped } from "./Stock"
 import { Product } from "../models/Product"
 
 export interface Url{
@@ -13,6 +14,16 @@ export interface ProductMapped {
     name:string
     price:number
     stock:string
+    url:Url
+    description:string
+    tags:Array<String>
+}
+
+export interface ProductWithStock {
+    _id:string
+    name:string
+    price:number
+    stock:StockMapped
     url:Url
     description:string
     tags:Array<String>
