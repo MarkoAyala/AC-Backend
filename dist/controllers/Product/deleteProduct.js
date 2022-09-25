@@ -14,6 +14,7 @@ const Product_1 = require("../../models/Product");
 const cloudinary_1 = require("../../cloudinary");
 const DELETE_PRODUCT = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { _id, url } = req.body;
+    console.log(_id, url);
     try {
         if (!_id || !url) {
             throw new Error("The id entered is undefined or null, please try again.");

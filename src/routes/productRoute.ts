@@ -11,7 +11,7 @@ const router = Router();
 
 router.post("/", CREATE_PRODUCT);
 router.get('/', GET_PRODUCT);
-router.get('/', GET_PRODUCT_BY_ID);
+router.get('/:_id', GET_PRODUCT_BY_ID);
 router.get('/', GET_PRODUCT_BY_TAG);
 router.get('/', GET_PRODUCT_BY_SIZE);
 router.put('/', DELETE_PRODUCT);
