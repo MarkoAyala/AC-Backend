@@ -19,11 +19,19 @@ const paymentFunction = async ()=>{
             }
         ],
         back_urls:{
-            success:"https://www.success.com",
+            success:"http://localhost:3001/payment/info",
             failure:"http://www.failure.com",
             pending:"http://www.pending.com"
         },
-        notification_url:"https://altocuero-backend.onrender.com/payment/info",
+        auto_return: "approved",
+        payer: {
+            name: "Juan",
+            surname: "Lopez",
+            email: "user@email.com",
+            phone: {
+                "number": "4444-4444"
+            }
+        },
         installments: 12
     };
     const payment = await axios.post(url, body,{

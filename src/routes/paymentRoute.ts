@@ -5,7 +5,7 @@ const router = Router();
 
 
 router.post("/", PAYMENT);
-router.post("/info",PAYMENT_NOTIFICATION);
+router.get("/info",PAYMENT_NOTIFICATION);
 
 
 export = router;
