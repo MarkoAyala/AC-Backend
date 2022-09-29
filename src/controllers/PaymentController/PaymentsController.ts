@@ -9,10 +9,10 @@ const paymentFunction = async ()=>{
         payer_email:"test_user_15734346@testuser.com",
         items:[
             {
-                title:'Dummy Tittle',
+                title:'Dummy lolazo',
                 currency_id: "ARS",
                 description:'Dummy description asdfsadfas fasf sasa saasfsaf',
-                picture_url:'https://res.cloudinary.com/morgan22/image/upload/v1661873541/AltoCuero/uh6gis1xhenieeasmv3l.png',
+                picture_url:'https://earlygame.com/uploads/images/_800x418_crop_center-center_82_none/League-of-Legends-Thumpnail.jpg?mtime=1588244867',
                 category_id:'art',
                 quantity:1,
                 unit_price:20
@@ -27,11 +27,26 @@ const paymentFunction = async ()=>{
         payer: {
             name: "Juan",
             surname: "Lopez",
-            email: "user@email.com",
+            mail: "lorenzo@hotmail.com",
             phone: {
-                "number": "4444-4444"
+                area_code: "11",
+                number: "4444-4444"
+            },
+            identification: {
+                type: "DNI",
+                number: "12345678"
+            },
+            address: {
+                street_name: "Street",
+                street_number: 123,
+                zip_code: "5700"
             }
         },
+        excluded_payment_types: [
+            {
+                id: "ticket"
+            }
+        ],
         installments: 12
     };
     const payment = await axios.post(url, body,{
