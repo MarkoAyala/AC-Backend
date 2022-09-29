@@ -47,6 +47,7 @@ const paymentFunction = async ()=>{
                 id: "ticket"
             }
         ],
+        notification_url: "https://altocuero-backend.onrender.com/payment/info",
         installments: 12
     };
     const payment = await axios.post(url, body,{
