@@ -16,26 +16,68 @@ exports.PAYMENT = void 0;
 require("dotenv").config();
 const { ACCESS_TOKEN } = process.env;
 const axios_1 = __importDefault(require("axios"));
-const paymentFunction = () => __awaiter(void 0, void 0, void 0, function* () {
-    const url = "http://api.mercadopago.com/checkout/preferences";
+const PAYMENT = (req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { name, description, picture, price, nombre_comprador, email_comprador, codigo_de_area, celular, dni, provincia, calle, numeracion, codigo_postal, id_producto } = req.body;
+        const pago = yield paymentFunction({ name: name, description: description, picture: picture, price: price, nombre_comprador: nombre_comprador, email_comprador: email_comprador, codigo_de_area: codigo_de_area, celular: celular, dni: dni, provincia: provincia, calle: calle, numeracion: numeracion, codigo_postal: codigo_postal, id_producto: id_producto });
+        console.log(pago);
+        return res.status(200).json(pago);
+    }
+    catch (error) {
+        res.status(400).json(`Error en el controller PAYMENT : ${error}`);
+    }
+});
+exports.PAYMENT = PAYMENT;
+const paymentFunction = (info) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(info);
+    const url = "https://api.mercadopago.com/checkout/preferences";
     const body = {
         payer_email: "test_user_15734346@testuser.com",
         items: [
             {
-                tittle: 'Dummy Tittle',
-                description: 'Dummy description',
-                picture_url: 'https://www.mercadopago.com/org-img/MP3/home/logomp3.gif',
-                category_id: 'cuero',
+                title: info.name,
+                currency_id: "ARS",
+                description: info.description,
+                picture_url: info.picture,
+                category_id: 'art',
                 quantity: 1,
-                unit_price: 10
+                unit_price: info.price
             }
         ],
-        backs_urls: {
-            succes: "https://www.success.com",
+        back_urls: {
+            success: `http://localhost:3001/payment/info?id_producto=${info.id_producto}`,
             failure: "http://www.failure.com",
             pending: "http://www.pending.com"
         },
-        notification_url: "https://www.your-site.com/ipn"
+        auto_return: "approved",
+        payer: {
+            name: info.nombre_comprador,
+            surname: info.email_comprador,
+            mail: info.email_comprador,
+            phone: {
+                area_code: info.codigo_de_area,
+                number: info.celular
+            },
+            identification: {
+                type: "DNI",
+                number: info.dni
+            },
+            address: {
+                street_name: info.calle,
+                street_number: info.numeracion,
+                zip_code: info.codigo_postal
+            }
+        },
+        payment_methods: {
+            excluded_payment_types: [
+                {
+                    id: "ticket"
+                }
+            ],
+            installments: 12
+        },
+        statement_descriptor: "ALTO-CUERO",
+        notification_url: `https://altocuero-backend.onrender.com/payment/info?id_producto=${info.id_producto}`,
     };
     const payment = yield axios_1.default.post(url, body, {
         headers: {
@@ -45,13 +87,3 @@ const paymentFunction = () => __awaiter(void 0, void 0, void 0, function* () {
     });
     return payment.data;
 });
-const PAYMENT = (_req, res, _next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const pago = yield paymentFunction();
-        return res.status(200).json(pago);
-    }
-    catch (error) {
-        res.status(400).json(`Error en el controller PAYMENT : ${error}`);
-    }
-});
-exports.PAYMENT = PAYMENT;
