@@ -38,7 +38,7 @@ const paymentFunction = async (info:Compra)=>{
             }
         ],
         back_urls:{
-            success:`http://localhost:3001/payment/info?id_producto=${info.id_producto}`,
+            success:`http://localhost:3001/payment/infor?id_producto=${info.id_producto}`,
             failure:"http://www.failure.com",
             pending:"http://www.pending.com"
         },
