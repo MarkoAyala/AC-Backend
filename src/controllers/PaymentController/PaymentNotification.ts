@@ -16,7 +16,7 @@ export const PAYMENT_NOTIFICATION = async (
     const {id , topic } = req.query
     let info:any;
     let resultado:any;
-    if(topic === 'payment'){
+    if(topic === 'merchant_order'){//cambiar a merchant
       info = await(await axios.get(`https://api.mercadopago.com/v1/payments/${id}`)).data
         resultado = await transporter.sendMail({
           from: '"ALTO CUERO - Información de contacto" <markoayala147@gmail.com>', 
@@ -25,6 +25,7 @@ export const PAYMENT_NOTIFICATION = async (
           html: `<div style={{margin:20px auto}}>   <p>Hola ${info.payer.first_name}!! , nos comunicamos para decirte que tu compra fue exitosa. A continuación te brindamos informacion nuestra para que estes en contacto:</p></br><p>Escribinos a nuestro WhatsApp con tu ID de compra para acelerar el proceso y poder hacer el envio lo antes posible --> ID: ${id}, nuestro whatsapp:+54 11700995411. Muchas gracias por tu compra <3!</p>                </div>`, // html body
         });
     }
+    console.log("INFO", info); // probar si sale que fue aprobado
     console.log("RESULTADO", resultado);
    res.status(200).json(resultado);
   } catch (error: string | any) {
