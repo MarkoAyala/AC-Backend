@@ -16,7 +16,8 @@ export const PAYMENT_NOTIFICATION = async (
     const {id , topic } = req.query
     let info:any;
     let resultado:any;
-    if(topic === 'merchant_order'){//cambiar a merchant
+    if(id){//cambiar a merchant
+      console.log("entre")
       info = await(await axios.get(`https://api.mercadopago.com/v1/payments/${id}`)).data
         resultado = await transporter.sendMail({
           from: '"ALTO CUERO - Información de contacto" <markoayala147@gmail.com>', 
@@ -27,6 +28,7 @@ export const PAYMENT_NOTIFICATION = async (
     }
     console.log("INFO", info); // probar si sale que fue aprobado
     console.log("RESULTADO", resultado);
+    console.log("id",typeof id , id);
    res.status(200).json(resultado);
   } catch (error: string | any) {
     res.status(400).json(`Error en el controller PAYMENT : ${error}`);
