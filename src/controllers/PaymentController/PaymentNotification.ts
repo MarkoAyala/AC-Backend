@@ -13,7 +13,7 @@ export const PAYMENT_NOTIFICATION = async (
   _next: NextFunction
 ) => {
   try {
-    const {id , topic } = req.query
+    const {id} = req.query
     let info:any;
     let resultado:any;
     if(id){//cambiar a merchant
