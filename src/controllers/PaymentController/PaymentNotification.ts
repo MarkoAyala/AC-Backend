@@ -15,7 +15,8 @@ export const PAYMENT_NOTIFICATION = async (
   try {
     let info:any;
     let resultado:any;
-    if(true){//cambiar a merchant
+    /*
+    if(id){//cambiar a merchant
       console.log("entre")
       info = await axios.get(`https://api.mercadopago.com/v1/payments/${data.id}`)
         resultado = await transporter.sendMail({
@@ -25,6 +26,7 @@ export const PAYMENT_NOTIFICATION = async (
           html: `<div style={{margin:20px auto}}>   <p>Hola ${info.data.payer.first_name}!! , nos comunicamos para decirte que tu compra fue exitosa. A continuación te brindamos informacion nuestra para que estes en contacto:</p></br><p>Escribinos a nuestro WhatsApp con tu ID de compra para acelerar el proceso y poder hacer el envio lo antes posible --> ID: ${id}, nuestro whatsapp:+54 11700995411. Muchas gracias por tu compra <3!</p>                </div>`, // html body
         });
     }
+    */
     console.log("INFO", info); // probar si sale que fue aprobado
     console.log("RESULTADO", req.query.'data.id');
     console.log("id strimg", req.query.data.id);
