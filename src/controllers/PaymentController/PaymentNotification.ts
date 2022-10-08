@@ -1,7 +1,7 @@
 require("dotenv").config();
 import { NextFunction, Request, Response } from "express";
-import { transporter } from "../../nodemailer";
-import axios from "axios"; 
+//import { transporter } from "../../nodemailer";
+//import axios from "axios"; 
 
 
 
@@ -28,8 +28,11 @@ export const PAYMENT_NOTIFICATION = async (
     }
     */
     console.log("INFO", info); // probar si sale que fue aprobado
-    console.log("RESULTADO", req.query.'data.id');
-    console.log("id strimg", req.query.data.id);
+    console.log("RESULTADO", req.query);
+    for(let property in req.query){
+      console.log(typeof property , "property", property)
+    }
+    console.log("id strimg", req.query);
    res.status(200).json(resultado);
   } catch (error: string | any) {
     res.status(400).json(`Error en el controller PAYMENT : ${error}`);
