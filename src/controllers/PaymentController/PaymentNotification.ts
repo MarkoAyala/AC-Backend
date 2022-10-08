@@ -13,8 +13,6 @@ export const PAYMENT_NOTIFICATION = async (
   _next: NextFunction
 ) => {
   try {
-    let info:any;
-    let resultado:any;
     /*
     if(id){//cambiar a merchant
       console.log("entre")
@@ -27,13 +25,8 @@ export const PAYMENT_NOTIFICATION = async (
         });
     }
     */
-    console.log("INFO", info); // probar si sale que fue aprobado
-    console.log("RESULTADO", req.query);
-    for(let property in req.query){
-      console.log(typeof property , "property", property)
-    }
-    console.log("id strimg", req.query);
-   res.status(200).json(resultado);
+    let objeto = JSON.parse(`${req.query}`);
+   res.status(200).json(objeto);
   } catch (error: string | any) {
     res.status(400).json(`Error en el controller PAYMENT : ${error}`);
   }
