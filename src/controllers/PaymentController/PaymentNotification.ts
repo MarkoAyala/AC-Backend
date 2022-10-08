@@ -22,9 +22,10 @@ export const PAYMENT_NOTIFICATION = async (
   _next: NextFunction
 ) => {
   try {
-    const {id , topic} = req.query;
+    const {id , topic, data} = req.query;
     if(id && topic === 'payment'){
-      console.log("entre")
+      console.log("entre");
+      console.log(data, "orden?")
       let payment = await getPayment(id);
       console.log(payment)
         resultado = await transporter.sendMail({
