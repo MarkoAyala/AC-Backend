@@ -4,7 +4,7 @@ import { NextFunction, Request, Response } from "express";
 import { transporter } from "../../nodemailer";
 import axios from "axios"; 
 
-const getPayment = (id:string) => {
+const getPayment = async (id:any) => {
   let info = await axios.get(`https://api.mercadopago.com/v1/payments/${id}`,
   {
     headers:{
@@ -25,10 +25,10 @@ export const PAYMENT_NOTIFICATION = async (
     const {id , topic, data} = req.query;
     if(id && topic === 'payment'){
       console.log("entre");
-      console.log(data, "orden?")
+      console.log(data, "orden?" , id,"id")
       let payment = await getPayment(id);
       console.log(payment)
-        resultado = await transporter.sendMail({
+      transporter.sendMail({
           from: '"ALTO CUERO - Información de contacto" <markoayala147@gmail.com>', 
           to: `markoayala3@hotmail.com`, 
           subject: "Gracias por tu compra 🧡",
