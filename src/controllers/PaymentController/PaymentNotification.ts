@@ -33,6 +33,7 @@ export const PAYMENT_NOTIFICATION = async (
             html: `<div style={{margin:20px auto}}>   <p>Hola !! , nos comunicamos para decirte que tu compra fue exitosa. A continuación te brindamos informacion nuestra para que estes en contacto:</p></br><p>Escribinos a nuestro WhatsApp con tu ID de compra para acelerar el proceso y poder hacer el envio lo antes posible --> ID: , nuestro whatsapp:+54 11700995411. Muchas gracias por tu compra <3!</p>                </div>`, // html body
           });
       }
+      console.log('AAAAAAAAAAAAAA', payment);
         res.status(200).json({msg:'Compra Realizada'});
     }else{
         console.log('NO ENTRE A PAYMENT', req.query, req.query.data)
