@@ -26,18 +26,19 @@ export const PAYMENT_NOTIFICATION = async (
     if(id && topic === 'payment'){
       let payment = await getPayment(id);
       if(payment.status === 'approved'){
-        transporter.sendMail({
+       const email = await (transporter.sendMail({
             from: '"ALTO CUERO - Información de contacto" <markoayala147@gmail.com>', 
             to: payment.additional_info?.payer.last_name, 
             subject: `Gracias por tu compra ${payment.additional_info?.payer.first_name} 🧡`,
             html: `<div style={{margin:20px auto}}>   <p>Hola !! , nos comunicamos para decirte que tu compra fue exitosa. A continuación te brindamos informacion nuestra para que estes en contacto:</p></br><p>Escribinos a nuestro WhatsApp con tu ID de compra para acelerar el proceso y poder hacer el envio lo antes posible --> ID: , nuestro whatsapp:+54 11700995411. Muchas gracias por tu compra <3!</p>                </div>`, // html body
-          });
+          }));
+          console.log('AAAAAAAAAAAAAA', email);
+          res.status(201).json({email});
       }
-      console.log('AAAAAAAAAAAAAA', payment);
-        res.status(200).json({msg:'Compra Realizada'});
+        res.status(201).json({no:"nocreado"});
     }else{
         console.log('NO ENTRE A PAYMENT', req.query, req.query.data)
-       res.status(200).json({msg:'enPROCESO'});
+       res.status(201).json({msg:'enPROCESO'});
     }
   } catch (error: string | any) {
     res.status(400).json(`Error en el controller PAYMENT : ${error}`);
