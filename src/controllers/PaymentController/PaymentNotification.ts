@@ -25,6 +25,7 @@ export const PAYMENT_NOTIFICATION = async (
     const {id , topic} = req.query;
     if(id && topic === 'payment'){
       let payment = await getPayment(id);
+      console.log(payment)
       if(payment.status === 'approved'){
        transporter.sendMail({
             from: '"ALTO CUERO - Información de contacto" <markoayala147@gmail.com>', 
