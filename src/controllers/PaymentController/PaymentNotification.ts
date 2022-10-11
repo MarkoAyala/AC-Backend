@@ -25,7 +25,6 @@ export const PAYMENT_NOTIFICATION = async (
     const {id , topic} = req.query;
     if(id && topic === 'payment'){
       let payment = await getPayment(id);
-      console.log(payment)
       if(payment.status === 'approved'){
        transporter.sendMail({
             from: '"ALTO CUERO - Información de contacto" <markoayala147@gmail.com>', 
@@ -35,7 +34,7 @@ export const PAYMENT_NOTIFICATION = async (
             <div style={{width:'100%', backgroundColor:'#242424', color:'white', overflow:'hidden'}}>
                         <div style={{width:'100%', display:'flex'}}>
 
-                        <img src={${require('../../img/banner.png')}} alt="no img" style={{width:'95%', height:'150px', objectFit:'cover', margin:'0px auto 0px auto', borderRadius:'7px'}} />
+                        <img src="https://res.cloudinary.com/morgan22/image/upload/v1665506332/AltoCuero/banner_kauugt.png" alt="no img" style={{width:'95%', height:'150px', objectFit:'cover', margin:'0px auto 0px auto', borderRadius:'7px'}} />
                         </div>
                         <h3 style={{textAlign:'center', margin:'15px 0px'}}>Gracias por confiar en nosotros,${payment.additional_info?.payer.first_name}</h3>
                         <div style={{margin:'0px 20px', border:'2px solid #555', padding:'20px 10px'}}>
