@@ -24,6 +24,7 @@ export const PAYMENT_NOTIFICATION = async (
   try {
     const {id , topic} = req.query;
     if(id && topic === 'payment'){
+      console.log('REQQ', req.query, "BODY", req.body);
       let payment = await getPayment(id);
       if(payment.status === 'approved'){
        transporter.sendMail({
@@ -32,8 +33,11 @@ export const PAYMENT_NOTIFICATION = async (
             subject: `Gracias por tu compra ${payment.additional_info?.payer.first_name} 🧡`,
             html: `<div style={{margin:20px auto}}>   <p>Hola !! , nos comunicamos para decirte que tu compra fue exitosa. A continuación te brindamos informacion nuestra para que estes en contacto:</p></br><p>Escribinos a nuestro WhatsApp con tu ID de compra para acelerar el proceso y poder hacer el envio lo antes posible --> ID: , nuestro whatsapp:+54 11700995411. Muchas gracias por tu compra <3!</p>                </div>`, // html body
           }).then((response)=>{
-            console.log("anasheeeeeeeeeee", response);
-            res.status(201).json({email:'terminado'});
+            if(response.accepted[0]){
+              res.status(201).json({email:'terminado'});
+            }else{
+              throw new Error('No se envio a ningun email');
+            }
           }); 
       }else{
         console.log('nocreado')
