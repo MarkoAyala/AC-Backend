@@ -1,5 +1,6 @@
 require("dotenv").config();
 const {ACCESS_TOKEN} = process.env;
+const Banner = require('../../img/banner.png');
 import { NextFunction, Request, Response } from "express";
 import { transporter } from "../../nodemailer";
 import axios from "axios"; 
@@ -34,7 +35,7 @@ export const PAYMENT_NOTIFICATION = async (
             <div style={{width:'100%', backgroundColor:'#242424', color:'white', overflow:'hidden'}}>
                         <div style={{width:'100%', display:'flex'}}>
 
-                        <img src={Banner} alt="no img" style={{width:'95%', height:'150px', objectFit:'cover', margin:'0px auto 0px auto', borderRadius:'7px'}} />
+                        <img src={${Banner}} alt="no img" style={{width:'95%', height:'150px', objectFit:'cover', margin:'0px auto 0px auto', borderRadius:'7px'}} />
                         </div>
                         <h3 style={{textAlign:'center', margin:'15px 0px'}}>Gracias por confiar en nosotros,${payment.additional_info?.payer.first_name}</h3>
                         <div style={{margin:'0px 20px', border:'2px solid #555', padding:'20px 10px'}}>
