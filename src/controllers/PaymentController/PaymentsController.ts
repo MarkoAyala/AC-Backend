@@ -13,7 +13,6 @@ export const PAYMENT = async (
     try {
     const {name ,description , picture , price , nombre_comprador , email_comprador , codigo_de_area , celular ,dni , provincia , calle ,numeracion , codigo_postal, id_producto}:Compra= req.body;
    const pago = await paymentFunction({name:name , description:description , picture:picture , price:price , nombre_comprador:nombre_comprador ,email_comprador:email_comprador, codigo_de_area:codigo_de_area , celular:celular,dni:dni , provincia:provincia , calle:calle , numeracion:numeracion , codigo_postal:codigo_postal, id_producto:id_producto});
-   console.log(pago);
    return res.status(200).json(pago);
   } catch (error: string | any) {
     res.status(400).json(`Error en el controller PAYMENT : ${error}`);
@@ -38,9 +37,9 @@ const paymentFunction = async (info:Compra)=>{
             }
         ],
         back_urls:{
-            success:`http://localhost:3001/payment/infor?id_producto=${info.id_producto}`,
-            failure:"http://www.failure.com",
-            pending:"http://www.pending.com"
+            success:`https://altocuero-backend.onrender.com/Successbuy`,
+            failure:"https://altocuero-backend.onrender.com/",
+            pending:"https://altocuero-backend.onrender.com/Failedbuy"
         },
         auto_return: "approved",
         payer: {
