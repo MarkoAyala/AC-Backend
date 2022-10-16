@@ -37,9 +37,9 @@ const paymentFunction = async (info:Compra)=>{
             }
         ],
         back_urls:{
-            success:`https://altocuero-backend.onrender.com/Successbuy`,
-            failure:"https://altocuero-backend.onrender.com/",
-            pending:"https://altocuero-backend.onrender.com/Failedbuy"
+            success:`https://altocuero-markoayala.vercel.app/Successbuy`,
+            failure:"https://altocuero-markoayala.vercel.app/",
+            pending:"https://altocuero-markoayala.vercel.app/Failedbuy"
         },
         auto_return: "approved",
         payer: {
@@ -66,7 +66,7 @@ const paymentFunction = async (info:Compra)=>{
                     id: "ticket"
                 }
             ],
-            installments: 12
+            installments: 1
         },
         statement_descriptor: "ALTO-CUERO",
         notification_url: `https://altocuero-backend.onrender.com/payment/info?id_producto=${info.id_producto}`,
