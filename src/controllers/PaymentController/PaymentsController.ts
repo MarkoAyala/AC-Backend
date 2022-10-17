@@ -24,7 +24,7 @@ const paymentFunction = async (info:Compra)=>{
     console.log(info)
     const url = "https://api.mercadopago.com/checkout/preferences";
     const body ={
-        payer_email:"test_user_15734346@testuser.com",
+        payer_email:"markoayala3@hotmail.com",
         items:[
             {
                 title:info.name,
