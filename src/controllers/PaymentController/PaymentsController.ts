@@ -24,7 +24,7 @@ const paymentFunction = async (info:Compra)=>{
     console.log(info)
     const url = "https://api.mercadopago.com/checkout/preferences";
     const body ={
-        payer_email:info.email_comprador,
+        payer_email:"test_user_97090593@testuser.com",
         items:[
             {
                 title:info.name,
@@ -44,8 +44,7 @@ const paymentFunction = async (info:Compra)=>{
         auto_return: "approved",
         payer: {
             name: info.nombre_comprador,
-            surname: info.email_comprador,
-            email:info.email_comprador,
+            surname:info.email_comprador,
             phone: {
                 area_code: info.codigo_de_area,
                 number: info.celular
@@ -66,7 +65,7 @@ const paymentFunction = async (info:Compra)=>{
                     id: "ticket"
                 }
             ],
-            installments: 1
+            installments: 12
         },
         statement_descriptor: "ALTO-CUERO",
         notification_url: `https://altocuero-backend.onrender.com/payment/info?id_producto=${info.id_producto}`,
