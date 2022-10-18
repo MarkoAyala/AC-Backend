@@ -20,7 +20,6 @@ const PAYMENT = (req, res, _next) => __awaiter(void 0, void 0, void 0, function*
     try {
         const { name, description, picture, price, nombre_comprador, email_comprador, codigo_de_area, celular, dni, provincia, calle, numeracion, codigo_postal, id_producto } = req.body;
         const pago = yield paymentFunction({ name: name, description: description, picture: picture, price: price, nombre_comprador: nombre_comprador, email_comprador: email_comprador, codigo_de_area: codigo_de_area, celular: celular, dni: dni, provincia: provincia, calle: calle, numeracion: numeracion, codigo_postal: codigo_postal, id_producto: id_producto });
-        console.log(pago);
         return res.status(200).json(pago);
     }
     catch (error) {
@@ -32,7 +31,7 @@ const paymentFunction = (info) => __awaiter(void 0, void 0, void 0, function* ()
     console.log(info);
     const url = "https://api.mercadopago.com/checkout/preferences";
     const body = {
-        payer_email: "test_user_15734346@testuser.com",
+        payer_email: "markoayala3@hotmail.com",
         items: [
             {
                 title: info.name,
@@ -45,9 +44,9 @@ const paymentFunction = (info) => __awaiter(void 0, void 0, void 0, function* ()
             }
         ],
         back_urls: {
-            success: `http://localhost:3001/payment/info?id_producto=${info.id_producto}`,
-            failure: "http://www.failure.com",
-            pending: "http://www.pending.com"
+            success: `https://altocuero-markoayala.vercel.app/Successbuy`,
+            failure: "https://altocuero-markoayala.vercel.app/",
+            pending: "https://altocuero-markoayala.vercel.app/Failedbuy"
         },
         auto_return: "approved",
         payer: {
@@ -74,7 +73,7 @@ const paymentFunction = (info) => __awaiter(void 0, void 0, void 0, function* ()
                     id: "ticket"
                 }
             ],
-            installments: 12
+            installments: 1
         },
         statement_descriptor: "ALTO-CUERO",
         notification_url: `https://altocuero-backend.onrender.com/payment/info?id_producto=${info.id_producto}`,
