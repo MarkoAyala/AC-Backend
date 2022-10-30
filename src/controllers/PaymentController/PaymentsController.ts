@@ -68,7 +68,7 @@ const paymentFunction = async (info:Compra)=>{
             installments: 12
         },
         statement_descriptor: "ALTO-CUERO",
-        notification_url: `https://altocuero-backend.onrender.com/payment/info?id_producto=${info.id_producto}`,
+        //notification_url: `https://altocuero-backend.onrender.com/payment/info?id_producto=${info.id_producto}`,
     };
     const payment = await axios.post(url, body,{
         headers:{
